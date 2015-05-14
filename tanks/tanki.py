@@ -3,6 +3,8 @@ import time
 import random
 
 pygame.init()
+
+
 white=(255,255,255)
 black=(0,0,0)
 red=(200,0,0)
@@ -28,9 +30,14 @@ pygame.display.set_caption('TANKS')
 clock=pygame.time.Clock()
 AppleThickness=30
 block_size=20
-FPS=15
 
-#direction="right"
+
+
+tankWidth=40
+tankHeight=20
+
+turretWidth=5
+wheelWidth=5
 
 smallfont = pygame.font.SysFont("comicsansms" ,25)   #defining object font
 medfont = pygame.font.SysFont("comicsansms" ,50)
@@ -179,6 +186,20 @@ def button(text,x,y,width,height,inactive_color,active_color,action=None):
         pygame.draw.rect(gameDisplay,inactive_color,(x,y,width,height))
 
     text_to_button(text,black,x,y,width,height)
+
+
+def tank(x,y):
+    x=int(x)
+    y=int(y)
+    pygame.draw.circle(gameDisplay,black,(x,y),int(tankHeight/2))
+    pygame.draw.rect(gameDisplay,black,(x-(int(tankWidth/2)),y,tankWidth,tankHeight))
+
+    pygame.draw.line(gameDisplay,black,(x,y),(x-20,y-20),turretWidth)
+
+    startX=15
+    for i in range(7):
+        pygame.draw.circle(gameDisplay,black,(x-startX,y+20),wheelWidth)
+        startX-=5
         
     
 def message_to_screen(msg,color,y_displace=0,size="small"):
@@ -193,6 +214,12 @@ def gameLoop():
     gameOver=False
     FPS=15
     
+    mainTankX=display_width*0.9
+    mainTankY=display_height*0.9
+
+    tankMove=0   
+
+    
     while not gameExit:
 
         if gameOver==True:
@@ -202,7 +229,7 @@ def gameLoop():
                               y_displace=50,
                               size="medium")
             pygame.display.update()
-            
+         
         while gameOver==True:
             for event in pygame.event.get():
                 if event.type==pygame.QUIT:
@@ -224,16 +251,20 @@ def gameLoop():
                 gameExit=True
             if event.type==pygame.KEYDOWN:
                 if event.key==pygame.K_LEFT:
-                    pass
+                    tankMove=-5
+                    
                 elif event.key==pygame.K_RIGHT:
-                    pass
+                    tankMove=5
+                    
                 elif event.key==pygame.K_UP:
                     pass
                 elif event.key==pygame.K_DOWN:
                     pass
                 elif event.key==pygame.K_p:
                     pause()
-                
+            elif event.type==pygame.KEYUP:
+                if event.key==pygame.K_LEFT or event.key==pygame.K_RIGHT:
+                    tankMove=0
                 
                     
        
@@ -241,6 +272,8 @@ def gameLoop():
         
 
         gameDisplay.fill(white)
+        mainTankX+=tankMove
+        tank(mainTankX,mainTankY)
         pygame.display.update()
         clock.tick(FPS)
         
