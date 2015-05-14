@@ -5,9 +5,14 @@ import random
 pygame.init()
 white=(255,255,255)
 black=(0,0,0)
-red=(255,0,0)
+red=(200,0,0)
+light_red=(255,0,0)
 green=(0,155,0)
 yellow=(200,200,0)
+light_yellow=(255,255,0)
+light_green=(0,255,0)
+
+
 display_width=800
 display_height=600
 gameDisplay= pygame.display.set_mode((display_width,display_height))
@@ -91,15 +96,11 @@ def game_intro():
         message_to_screen("The more you destroy the harder it get",black,
                             50)
         #message_to_screen("Press C to play, Q to quit or P to pause",black,180)
+        
 
-
-        pygame.draw.rect(gameDisplay,green,(150,500,100,50))
-        pygame.draw.rect(gameDisplay,yellow,(350,500,100,50))
-        pygame.draw.rect(gameDisplay,red,(550,500,100,50))
-
-        text_to_button("play",black,150,500,100,50)
-        text_to_button("Controls",black,350,500,100,50)
-        text_to_button("Quit",black,550,500,100,50)
+        button("play",150,500,100,50,green,light_green)
+        button("Controls",350,500,100,50,yellow,light_yellow)
+        button("Quit",550,500,100,50,red,light_red)
 
 
 
@@ -124,7 +125,18 @@ def text_to_button(msg,color,buttonx,buttony,buttonwidth,buttonheight,size="smal
     textSurf,textRect=text_objects(msg,color,size)
     textRect.center=((buttonx+(buttonwidth/2)),buttony+(buttonheight/2))
     gameDisplay.blit(textSurf,textRect)
-    
+
+
+def button(text,x,y,width,height,inactive_color,active_color):
+    cur=pygame.mouse.get_pos()
+
+    if x+width > cur[0] > x and y+height > cur[1] >y :
+        pygame.draw.rect(gameDisplay,active_color,(x,y,width,height))
+    else:
+        pygame.draw.rect(gameDisplay,inactive_color,(x,y,width,height))
+
+    text_to_button(text,black,x,y,width,height)
+        
     
 def message_to_screen(msg,color,y_displace=0,size="small"):
     textSurf,textRect=text_objects(msg,color,size)
