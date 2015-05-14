@@ -77,6 +77,7 @@ def game_intro():
     intro=True
     while intro:
         for event in pygame.event.get():
+            #print event
             if event.type==pygame.QUIT:
                 pygame.quit()
                 quit()
@@ -95,18 +96,13 @@ def game_intro():
                             10)
         message_to_screen("The more you destroy the harder it get",black,
                             50)
-        #message_to_screen("Press C to play, Q to quit or P to pause",black,180)
         
 
-        button("play",150,500,100,50,green,light_green)
+        button("Play",150,500,100,50,green,light_green)
         button("Controls",350,500,100,50,yellow,light_yellow)
         button("Quit",550,500,100,50,red,light_red)
 
-
-
-
-
-
+        
 
         
         pygame.display.update()
@@ -121,17 +117,22 @@ def text_objects(text,color,size):
     elif size=="large":
         textSurface=largefont.render(text,True,color)
     return textSurface,textSurface.get_rect()
+
+#entering text in buttons
 def text_to_button(msg,color,buttonx,buttony,buttonwidth,buttonheight,size="small"):
     textSurf,textRect=text_objects(msg,color,size)
     textRect.center=((buttonx+(buttonwidth/2)),buttony+(buttonheight/2))
     gameDisplay.blit(textSurf,textRect)
 
-
-def button(text,x,y,width,height,inactive_color,active_color):
+#to create a button at a location with response
+def button(text,x,y,width,height,inactive_color,active_color,action="none"):
     cur=pygame.mouse.get_pos()
-
+    click=pygame.mouse.get_pressed()
+    
     if x+width > cur[0] > x and y+height > cur[1] >y :
         pygame.draw.rect(gameDisplay,active_color,(x,y,width,height))
+        #if click[0]== 1:
+            
     else:
         pygame.draw.rect(gameDisplay,inactive_color,(x,y,width,height))
 
@@ -161,7 +162,6 @@ def gameLoop():
             pygame.display.update()
             
         while gameOver==True:
-            #gameDisplay.fill(white)
             for event in pygame.event.get():
                 if event.type==pygame.QUIT:
                     gameExit=True
