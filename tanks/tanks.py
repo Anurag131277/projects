@@ -15,14 +15,17 @@ gameDisplay.fill(blue)
 Pix=pygame.PixelArray(gameDisplay)
 
 Pix[10][10]=green
+height=100
+width=200
+x=300
+y=300
+#pygame.draw.line(gameDisplay,red,(200,300),(500,500),5)  #(where,what color,start point(tuple),end point(tuple),width)
 
-pygame.draw.line(gameDisplay,red,(200,300),(500,500),5)  #(where,what color,start point(tuple),end point(tuple),width)
+pygame.draw.circle(gameDisplay,red,(x,y),int(height/2))   #(where,color,center(),radius)
 
-pygame.draw.circle(gameDisplay,red,(200,200),50)   #(where,color,center(),radius)
+pygame.draw.rect(gameDisplay,green,(x-int(width/2),y,width,height)) #(where,color,(topleft,width,height))
 
-pygame.draw.rect(gameDisplay,green,(250,150,200,100)) #(where,color,(topleft,width,height))
-
-pygame.draw.polygon(gameDisplay,white,((140,5),(200,16),(100,333),(500,222),(250,250)))  #(where,color,points())
+#pygame.draw.polygon(gameDisplay,white,((140,5),(200,16),(100,333),(500,222),(250,250)))  #(where,color,points())
 
 
 

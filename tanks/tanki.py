@@ -188,17 +188,31 @@ def button(text,x,y,width,height,inactive_color,active_color,action=None):
     text_to_button(text,black,x,y,width,height)
 
 
-def tank(x,y):
+def tank(x,y,turPos,color):
     x=int(x)
     y=int(y)
-    pygame.draw.circle(gameDisplay,black,(x,y),int(tankHeight/2))
-    pygame.draw.rect(gameDisplay,black,(x-(int(tankWidth/2)),y,tankWidth,tankHeight))
 
-    pygame.draw.line(gameDisplay,black,(x,y),(x-20,y-20),turretWidth)
+    possibleTurrets=[(x-27,y-2),
+                     (x-26,y-5),
+                     (x-25,y-8),
+                     (x-23,y-12),
+                     (x-20,y-14),
+                     (x-18,y-15),
+                     (x-15,y-17),
+                     (x-13,y-19),
+                     (x-11,y-21)
+                     ]
+    pygame.draw.circle(gameDisplay,color,(x,y),int(tankHeight/2))
+    pygame.draw.rect(gameDisplay,color,(x-(int(tankWidth/2)),y,tankWidth,tankHeight))
+
+    
+
+
+    pygame.draw.line(gameDisplay,color,(x,y),possibleTurrets[turPos],turretWidth)
 
     startX=15
     for i in range(7):
-        pygame.draw.circle(gameDisplay,black,(x-startX,y+20),wheelWidth)
+        pygame.draw.circle(gameDisplay,color,(x-startX,y+20),wheelWidth)
         startX-=5
         
     
@@ -207,6 +221,12 @@ def message_to_screen(msg,color,y_displace=0,size="small"):
     textRect.center=(display_width/2),(display_height/2)+y_displace
     gameDisplay.blit(textSurf,textRect)
 
+
+def barrier(xlocation,randomHeight):
+    
+    pygame.draw.rect(gameDisplay,black,[xlocation,display_height-randomHeight,50,randomHeight])
+
+    
 def gameLoop():
     global direction
     direction='right'
@@ -216,8 +236,15 @@ def gameLoop():
     
     mainTankX=display_width*0.9
     mainTankY=display_height*0.9
+    tankMove=0
 
-    tankMove=0   
+    currentTurPos =0
+    changeTur=0
+
+    xlocation=(display_width/2)+ random.randint(-0.2*display_width,0.2*display_width)
+    randomHeight=random.randrange(display_height*.01,display_height*0.6)
+
+    
 
     
     while not gameExit:
@@ -257,14 +284,16 @@ def gameLoop():
                     tankMove=5
                     
                 elif event.key==pygame.K_UP:
-                    pass
+                    changeTur=1
                 elif event.key==pygame.K_DOWN:
-                    pass
+                    changeTur=-1
                 elif event.key==pygame.K_p:
                     pause()
             elif event.type==pygame.KEYUP:
                 if event.key==pygame.K_LEFT or event.key==pygame.K_RIGHT:
                     tankMove=0
+                if event.key==pygame.K_UP or event.key==pygame.K_DOWN:
+                    changeTur=0
                 
                     
        
@@ -273,7 +302,18 @@ def gameLoop():
 
         gameDisplay.fill(white)
         mainTankX+=tankMove
-        tank(mainTankX,mainTankY)
+        currentTurPos+=changeTur
+
+        if currentTurPos >8:
+            currentTurPos=8
+        elif currentTurPos<0:
+            currentTurPos=0
+
+
+        
+        tank(mainTankX,mainTankY,currentTurPos,red)
+        
+        barrier(xlocation,randomHeight)
         pygame.display.update()
         clock.tick(FPS)
         
@@ -282,3 +322,4 @@ def gameLoop():
 game_intro()
 gameLoop()
 
+#63
