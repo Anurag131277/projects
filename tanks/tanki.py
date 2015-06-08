@@ -31,8 +31,6 @@ clock=pygame.time.Clock()
 AppleThickness=30
 block_size=20
 
-
-
 tankWidth=40
 tankHeight=20
 
@@ -78,6 +76,9 @@ def randAppleGen():
     randAppleY=round(random.randrange(0,display_height-AppleThickness))#/10.0)*10.0
 
     return randAppleX,randAppleY
+def power(level):
+    text=smallfont.render("POWER : "+str(level)+"%",True,black)
+    gameDisplay.blit(text,[display_width/2,0])
 
 #Game Inro function
 def game_intro():
@@ -205,16 +206,13 @@ def tank(x,y,turPos,color):
     pygame.draw.circle(gameDisplay,color,(x,y),int(tankHeight/2))
     pygame.draw.rect(gameDisplay,color,(x-(int(tankWidth/2)),y,tankWidth,tankHeight))
 
-    
-
-
     pygame.draw.line(gameDisplay,color,(x,y),possibleTurrets[turPos],turretWidth)
 
     startX=15
     for i in range(7):
         pygame.draw.circle(gameDisplay,color,(x-startX,y+20),wheelWidth)
         startX-=5
-        
+    return possibleTurrets[turPos]
     
 def message_to_screen(msg,color,y_displace=0,size="small"):
     textSurf,textRect=text_objects(msg,color,size)
@@ -222,10 +220,36 @@ def message_to_screen(msg,color,y_displace=0,size="small"):
     gameDisplay.blit(textSurf,textRect)
 
 
-def barrier(xlocation,randomHeight):
+def barrier(xlocation,randomHeight,barrier_width):
     
-    pygame.draw.rect(gameDisplay,black,[xlocation,display_height-randomHeight,50,randomHeight])
+    pygame.draw.rect(gameDisplay,black,[xlocation,display_height-randomHeight,barrier_width,randomHeight])
 
+def fireShell(xy,tankX,tankY,turPos,gun_power):
+    fire=True
+
+    startingShell=list(xy)
+
+    
+
+    while fire:
+        for event in pygame.event.get():
+            if event.type==pygame.QUIT:
+                pygame.quit()
+                quit()
+
+        pygame.draw.circle(gameDisplay,red,(startingShell[0],startingShell[1]),5)
+
+        startingShell[0] -=(12- turPos)*2
+        gun_power=float(gun_power)
+
+        startingShell[1] += int((((startingShell[0]-xy[0])*0.015/(gun_power/50.0))**2)-(turPos+turPos/(12-turPos)))
+
+        if startingShell[1] > display_height:
+            fire=False
+
+        pygame.display.update()
+        clock.tick(60)
+    
     
 def gameLoop():
     global direction
@@ -233,6 +257,8 @@ def gameLoop():
     gameExit=False
     gameOver=False
     FPS=15
+
+    barrier_width=50
     
     mainTankX=display_width*0.9
     mainTankY=display_height*0.9
@@ -241,6 +267,9 @@ def gameLoop():
     currentTurPos =0
     changeTur=0
 
+    fire_power=50
+    power_change=0
+
     xlocation=(display_width/2)+ random.randint(-0.2*display_width,0.2*display_width)
     randomHeight=random.randrange(display_height*.01,display_height*0.6)
 
@@ -248,6 +277,8 @@ def gameLoop():
 
     
     while not gameExit:
+        gameDisplay.fill(white)
+        gun=tank(mainTankX,mainTankY,currentTurPos,red)
 
         if gameOver==True:
             message_to_screen("Game Over",red,y_displace=-50,size="large")
@@ -271,7 +302,7 @@ def gameLoop():
 
 
 
-        
+        #event handling
         for event in pygame.event.get():
             
             if event.type==pygame.QUIT:
@@ -289,20 +320,35 @@ def gameLoop():
                     changeTur=-1
                 elif event.key==pygame.K_p:
                     pause()
+                elif event.key==pygame.K_SPACE:
+                    fireShell(gun,mainTankX,mainTankY,currentTurPos,fire_power)
+                elif event.key==pygame.K_a:
+                    power_change=-1
+                elif event.key==pygame.K_d:
+                    power_change=1
+                                    
             elif event.type==pygame.KEYUP:
                 if event.key==pygame.K_LEFT or event.key==pygame.K_RIGHT:
                     tankMove=0
                 if event.key==pygame.K_UP or event.key==pygame.K_DOWN:
                     changeTur=0
+                if event.key==pygame.K_a or event.key==pygame.K_d:
+                    power_change=0
+
+                
+                
                 
                     
        
 
         
 
-        gameDisplay.fill(white)
+        
         mainTankX+=tankMove
+        
         currentTurPos+=changeTur
+
+        
 
         if currentTurPos >8:
             currentTurPos=8
@@ -310,10 +356,16 @@ def gameLoop():
             currentTurPos=0
 
 
+        if mainTankX - (tankWidth/2) < xlocation+barrier_width:
+            mainTankX+=5
+
+
         
-        tank(mainTankX,mainTankY,currentTurPos,red)
+        fire_power+=power_change
+
+        power(fire_power)  #displays firepower level
         
-        barrier(xlocation,randomHeight)
+        barrier(xlocation,randomHeight,barrier_width)
         pygame.display.update()
         clock.tick(FPS)
         
