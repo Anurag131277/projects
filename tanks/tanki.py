@@ -5,6 +5,7 @@ import random
 pygame.init()
 
 
+
 white=(255,255,255)
 black=(0,0,0)
 red=(200,0,0)
@@ -13,6 +14,13 @@ green=(0,155,0)
 yellow=(200,200,0)
 light_yellow=(255,255,0)
 light_green=(0,255,0)
+
+
+fire_sound=pygame.mixer.Sound("boom.wav")
+explosion_sound=pygame.mixer.Sound("Exploding.wav")
+
+##pygame.mixer.music.load("Exploding.wav")   #for continuous background music
+##pygame.mixer.music.play(-1)
 
 
 display_width=800
@@ -303,7 +311,7 @@ def barrier(xlocation,randomHeight,barrier_width):
     pygame.draw.rect(gameDisplay,black,[xlocation,display_height-randomHeight,barrier_width,randomHeight])
 
 def explosion(x,y,size=50):
-
+    pygame.mixer.Sound.play(explosion_sound)
     explode=True
     while explode:
         for event in pygame.event.get():
@@ -327,6 +335,8 @@ def explosion(x,y,size=50):
 
     
 def fireShell(xy,tankX,tankY,turPos,gun_power,xlocation,barrier_width,randomHeight,enemyTankX,enemyTankY):
+
+    pygame.mixer.Sound.play(fire_sound)
     fire=True
     damage=0
 
@@ -381,7 +391,7 @@ def fireShell(xy,tankX,tankY,turPos,gun_power,xlocation,barrier_width,randomHeig
 
 
 def e_fireShell(xy,tankX,tankY,turPos,gun_power,xlocation,barrier_width,randomHeight,ptankx,ptanky):
-
+    pygame.mixer.Sound.play(fire_sound)
     damage=0
 
     currentPower=1
@@ -522,7 +532,7 @@ def gameLoop():
     fire_power=50
     power_change=0
 
-    xlocation=(display_width/2)+ random.randint(-0.2*display_width,0.2*display_width)
+    xlocation=(display_width/2)+ random.randint(-0.1*display_width,0.1*display_width)
     randomHeight=random.randrange(display_height*.01,display_height*0.6)
 
     
@@ -573,8 +583,35 @@ def gameLoop():
                     damage=fireShell(gun,mainTankX,mainTankY,currentTurPos,fire_power,xlocation,barrier_width,randomHeight,enemyTankX,enemyTankY)
                     enemy_health-=damage
 
+                    possibleMovement=['f','r']
+                    moveIndex=random.randrange(0,2)
+
+                    for x in range(random.randrange(0,10)):  #moves enemy tank
+                        if display_width*0.3>enemyTankX>display_width*0.03:
+                            if possibleMovement[moveIndex]== "f":
+                                enemyTankX+=5
+                            elif possibleMovement[moveIndex]=="r":
+                                enemyTankX-=5
+
+                            gameDisplay.fill(white)
+                            health_bars(player_health,enemy_health)
+                            gun=tank(mainTankX,mainTankY,currentTurPos,red)
+                            enemy_gun=enemy_tank(enemyTankX,enemyTankY,8,black)
+                            
+                            fire_power+=power_change
+
+                            power(fire_power)  #displays firepower level
+                            
+                            barrier(xlocation,randomHeight,barrier_width)
+                            gameDisplay.fill(green,rect=[0,display_height-ground_height,display_width,ground_height])
+                            pygame.display.update()
+                            clock.tick(FPS)                      
+
+                    
+
                     damage=e_fireShell(enemy_gun,enemyTankX,enemyTankY,8,50,xlocation,barrier_width,randomHeight,mainTankX,mainTankY)
                     player_health-=damage
+                    
                 elif event.key==pygame.K_a:
                     power_change=-1
                 elif event.key==pygame.K_d:
@@ -587,14 +624,6 @@ def gameLoop():
                     changeTur=0
                 if event.key==pygame.K_a or event.key==pygame.K_d:
                     power_change=0
-
-                
-                
-                
-                    
-       
-
-        
 
         
         mainTankX+=tankMove
@@ -619,6 +648,11 @@ def gameLoop():
         
         fire_power+=power_change
 
+        if fire_power>100:
+            fire_power=100
+        elif fire_power<1:
+            fire_power=1
+
         power(fire_power)  #displays firepower level
         
         barrier(xlocation,randomHeight,barrier_width)
@@ -636,4 +670,4 @@ def gameLoop():
 game_intro()
 gameLoop()
 
-#81 done
+#84 done
