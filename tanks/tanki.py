@@ -14,7 +14,9 @@ green=(0,155,0)
 yellow=(200,200,0)
 light_yellow=(255,255,0)
 light_green=(0,255,0)
+brown=(180,95,4)
 
+background=pygame.image.load('blue_sky_04.jpg')
 
 fire_sound=pygame.mixer.Sound("boom.wav")
 explosion_sound=pygame.mixer.Sound("Exploding.wav")
@@ -593,7 +595,7 @@ def gameLoop():
                             elif possibleMovement[moveIndex]=="r":
                                 enemyTankX-=5
 
-                            gameDisplay.fill(white)
+                            gameDisplay.fill(white)  #background of the game
                             health_bars(player_health,enemy_health)
                             gun=tank(mainTankX,mainTankY,currentTurPos,red)
                             enemy_gun=enemy_tank(enemyTankX,enemyTankY,8,black)
@@ -603,7 +605,7 @@ def gameLoop():
                             power(fire_power)  #displays firepower level
                             
                             barrier(xlocation,randomHeight,barrier_width)
-                            gameDisplay.fill(green,rect=[0,display_height-ground_height,display_width,ground_height])
+                            gameDisplay.fill(brown,rect=[0,display_height-ground_height,display_width,ground_height])
                             pygame.display.update()
                             clock.tick(FPS)                      
 
@@ -641,7 +643,7 @@ def gameLoop():
             mainTankX+=5
 
 
-        gameDisplay.fill(white)
+        gameDisplay.fill(white)        #background of the game
         health_bars(player_health,enemy_health)
         gun=tank(mainTankX,mainTankY,currentTurPos,red)
         enemy_gun=enemy_tank(enemyTankX,enemyTankY,8,black)
@@ -656,7 +658,7 @@ def gameLoop():
         power(fire_power)  #displays firepower level
         
         barrier(xlocation,randomHeight,barrier_width)
-        gameDisplay.fill(green,rect=[0,display_height-ground_height,display_width,ground_height])
+        gameDisplay.fill(brown,rect=[0,display_height-ground_height,display_width,ground_height])
         pygame.display.update()
 
         if player_health<1:
