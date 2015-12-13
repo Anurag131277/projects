@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width" scale="1.0">
+
+
+       <!-- JS -->
+        <script src='./js/elevator.js'></script>
+
+        <link href='./css/styles.css' rel='stylesheet'>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+ <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arvo" />
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Didact+Gothic" />
+   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lobster+Two" />
+   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Raleway" />
+
+     <link rel="stylesheet" type="text/css" href="./css/zoomwall.css" />
+<script type="text/javascript" src="./js/zoomwall.js"></script>
+
+<style type="text/css">
+	* {
+  box-sizing: border-box;
+}
+.div_head{
+  font-size: 45px;
+  font-family:Lobster Two;
+  color:#00bfa5;
+}
+  	  	
+ .jumbotron {
+    padding-right: 60px;
+    padding-left: 60px;
+    border-radius: 0px;
+    margin-bottom: 0px;
+    background:#fff;
+}   
+h1, h2, .jumbotron {
+    text-align: center;
+    font-family: Didact Gothic;
+    font-size: 40px;
+}
+
+body {
+  margin: 0;
+  padding-top: 650px;
+}
+header {
+  height: 650px;
+  background: #f07057;
+}
+.main-nav,
+.main {
+  position: relative; 
+}
+.main-nav a{
+    font-size: .9em;
+    text-decoration: none;
+    font-weight: bold;
+	padding-left: 10px;
+	padding-right: 10px;
+    text-transform: uppercase;
+    color: #444135;
+    display: inline-block;
+  }
+  .activelink{
+    border-top: 2px solid #f07057;
+    padding-top: 10px;
+  }
+  .main h2{
+    column-span:all;
+    background-color: #fff;
+  }
+.main-nav {
+  text-align: center;
+  background: #fff;
+  height: 80px;
+  padding: 10px 10px 20px 5px;
+  z-index: 150;
+  margin-bottom: -80px;
+  box-shadow: 0 2px 3px rgba(0,0,0,.4);
+}
+header,
+.main-nav-scrolled {
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+.main {
+  background: #fff;/*#f2f2e8;*/
+  padding: 110px 50px 50px;
+}
+
+.bg{
+  z-index: 1;
+  position: absolute;
+  margin-top:-10px; 
+	}
+
+.bgvid{ 
+    position:relative;
+    min-width: 100%;
+    min-height:100%;
+}
+#vid{
+  z-index:-100;
+  }
+.par-back{
+	margin-top: -20px;
+	background: url(./img/bshow.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: relative;
+  height: 50em;
+}
+.abt_us{
+	background-size: inherit;
+}
+.z-depth-1,.card-panel,.card,.toast,.btn,.btn-large,.btn-floating,.dropdown-content,.collapsible,.side-nav{
+  -webkit-box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+  -moz-box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+  box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+}
+.contact{
+	background:#696969;
+	padding-top: 0;
+	text-align: center;
+
+}
+</style>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	var  mn = $(".main-nav");
+    mns = "main-nav-scrolled";
+    hdr = $('header').height();
+
+$(window).scroll(function() {
+  if( $(this).scrollTop() > hdr ) {
+    mn.addClass(mns);
+  } else {
+    mn.removeClass(mns);
+  }
+});
+
+});
+
+</script>
+
+<script type="text/javascript"> 
+window.onload = function() {
+    zoomwall.create(document.getElementById('zoomwall'), true);
+  };
+</script>
+</head>
+<body>
+
+<header>
+	<div class="bgvid">
+                <img src="./img/dequinoxpng1.png" width="100%" height="100%" class="bg"></img>
+                <video id="vid" loop autoplay height="100%" width="100%">
+                   <source src="./music/heyhiheyhi.webm" type="video/webm">
+                </video>
+            </div>
+</header>
+<nav class="main-nav nav1">
+      <a class="nav-link activelink" href="#">Home</a>
+      <a class="nav-link" href="#">Events</a>
+      <a class="nav-link" href="#">Sponsers</a>
+      <a class="nav-link" href="#">Contact Us</a>
+    </nav>
+
+<div class="main">
+	<section class="abt_us">
+    <div class="container-fluid">
+             <div class="jumbotron">
+               	<p><h3><font class="div_head"><br>About Us</font></h3></p>
+                <hr color="white" />
+                <p>_______ Fest is the annual social and cultural festival of JUET Guna, a pioneer in the elite institutions. It marks days of absolute ecstasy, providing the budding artists a competing platform in diverse fields such as music, dance, theater, photography, literature, fine arts, quizzing and debating. Spring Fest is an avenue to be comforted from the routine life and to embrace the fun and frolic embedded with tantalizing professional performances from India and abroad along with an addressal to the social responsibility with its underlying social theme.</p>
+                
+            </div>
+            <div class="down-arrow">&#9660;</div>
+            
+    </div>
+    </section>
+  </div>
+    <div class="par-back">
+    	<h1>Hello by Adelle</h1>
+		
+    </div>
+<div class="main">
+
+	<div class="jumbotron">
+              <p><h3><font class="div_head"><br>Testimonials</font></h3></p>
+
+              <hr color="white" />
+                 <div class="row" id="test">
+                     <div class="col-sm-12">
+                        <div class="card-panel lighten-5 z-depth-1">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-2" style="margin-top:70px;">
+                                  <img src="img/1.jpg" style="width:100px; height:100px;" class="circle responsive-img"> <!-- notice the "circle" class -->
+                                </div>
+                                <div class="col-sm-12 col-md-10" >
+                                  <p style="line-height:30px; text-align:justify; margin-top:20px;" class="left-align">" Our journey to JUET Guna  was one of the most memorable and to add on to that a very memorable gig. We loved playing 
+                                  for the crowd and we thank each and everyone who stayed back to watch us despite all the delays. There were absolutely no 
+                                  complaints in terms of Hospitality and the Management. We would like to thank each and every committee member who was part 
+                                  of the management team and the hospitality team for seeing to it that our stay and the show is smooth. " 
+                                  <br /><br />Regards,<br /><I>Paradigm Shift</I></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+
+                 <div class="row" id="test">
+                    <div class="col-sm-12">
+                      <div class="card-panel white lighten-5 z-depth-1">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-2" style="margin-top:70px;">
+                                  <img src="img/1.jpg" style="width:100px; height:100px;" class="circle responsive-img"> <!-- notice the "circle" class -->
+                                </div>
+                                <div class="col-sm-12 col-md-10" >
+                                  <p style="line-height:30px; text-align:justify; margin-top:20px;" class="left-align">" Our journey to JUET Guna  was one of the most memorable and to add on to that a very memorable gig. We loved playing 
+                                  for the crowd and we thank each and everyone who stayed back to watch us despite all the delays. There were absolutely no 
+                                  complaints in terms of Hospitality and the Management. We would like to thank each and every committee member who was part 
+                                  of the management team and the hospitality team for seeing to it that our stay and the show is smooth. " 
+                                  <br /><br />Regards,<br /><I>Paradigm Shift</I></p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                 </div>
+          </div>
+	<div class="down-arrow">&#9660;</div>
+	<section>
+        <div class="jumbotron gal">
+          <p><h3><font class="div_head"><br>Gallary</font></h3></p>
+           <hr color="white" />
+          <div class="row" style="padding-top:20px;">
+            <div class="col-sm-12 col-md-12">
+            <div class="zoomwall" id="zoomwall">
+                <img src="./img/bshow.jpg" data-highres="./img/bshow.jpg" />
+                <img src="./img/bshow.jpg" data-highres="./img/bshow.jpg" />
+                <img src="./img/bshow.jpg" data-highres="./img/bshow.jpg" />
+                <img src="./img/bshow.jpg" data-highres="./img/bshow.jpg" />
+                <img src="./img/bshow.jpg" data-highres="./img/bshow.jpg" />
+                <img src="./img/bshow.jpg" data-highres="./img/bshow.jpg" />
+                <img src="./img/bshow.jpg" data-highres="./img/bshow.jpg" />
+            </div>
+            </div>
+          </div>
+          </div>
+          <div class="down-arrow">&#9660;</div>
+      </section>
+</div>	
+
+<div class="container-fluid main contact">
+<p><h3><font class="div_head"><br>Contact Us</font></h3></p>
+ <hr color="white" />
+ <div class="row">
+ 	<div class="col-md-4 col-sm-4">
+		
+ 	</div>
+ 	<div class="col-md-4 col-sm-4">
+ 		
+ 	</div>
+ 	<div class="col-md-4 col-sm-4">
+ 		
+ 	</div>
+ </div>
+</div>
+ <div class="footer main">
+            <div class="do-the-thing">
+                <div class="elevator">
+                    <svg class="sweet-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" height="100px" width="100px">
+                        <path d="M70,47.5H30c-1.4,0-2.5,1.1-2.5,2.5v40c0,1.4,1.1,2.5,2.5,2.5h40c1.4,0,2.5-1.1,2.5-2.5V50C72.5,48.6,71.4,47.5,70,47.5z   M47.5,87.5h-5v-25h5V87.5z M57.5,87.5h-5v-25h5V87.5z M67.5,87.5h-5V60c0-1.4-1.1-2.5-2.5-2.5H40c-1.4,0-2.5,1.1-2.5,2.5v27.5h-5  v-35h35V87.5z"/>
+                        <path d="M50,42.5c1.4,0,2.5-1.1,2.5-2.5V16l5.7,5.7c0.5,0.5,1.1,0.7,1.8,0.7s1.3-0.2,1.8-0.7c1-1,1-2.6,0-3.5l-10-10  c-1-1-2.6-1-3.5,0l-10,10c-1,1-1,2.6,0,3.5c1,1,2.6,1,3.5,0l5.7-5.7v24C47.5,41.4,48.6,42.5,50,42.5z"/>
+                    </svg>
+                    Back to Top
+                </div>
+            </div>
+        </div>
+
+         <script>
+
+            // Simple elevator usage.
+            var elementButton = document.querySelector('.elevator');
+            var elevator = new Elevator({
+                element: elementButton,
+                mainAudio: './music/elevator.mp3', // Music from http://www.bensound.com/
+                endAudio:  './music/ding.mp3'
+            });
+
+        </script>
+</body>
+</html>
