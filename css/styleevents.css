@@ -129,7 +129,7 @@ Main content
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(54,53,88,0.6);/*rgba(28, 23, 38, 0.6);*/
+  background-color: rgba(51, 133, 255,0.6);/*rgba(28, 23, 38, 0.6);*/
   opacity: 0;
   visibility: hidden;
   -webkit-transition: opacity 0.5s 0.4s, visibility 0s 0.9s;
