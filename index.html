@@ -22,7 +22,7 @@
 
      <link rel="stylesheet" href="./css/zoomwall.css" />
   <link rel="stylesheet" href="./css/imagegrow.css">
-  <link rel="stylesheet" href="./css/navbar2.css">
+  <!--link rel="stylesheet" href="./css/navbar2.css"-->
   <link rel="stylesheet" href="./css/mainpage.css">
 
 
@@ -36,8 +36,73 @@
   width: 100%;
   top: 0;
 }
+header {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  top:0;
+}
+
+
+/*navbar*/
+.container {
+  max-width: 60em;
+  min-width: 45em;
+  margin: 0 auto;
+  padding: 0 2em;
+}
+nav ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    float: right;
+  }
+nav {
+  position: fixed;
+  width: 100%;
+  margin: 0 auto;
+  top: 0;
+  z-index: 3;
+}
+  
+ nav li {
+    display: inline-block;
+    padding: 2em;
+    text-align: center;
+    transition: all .2s;
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+ nav a {
+    color: #FFF;
+    text-decoration: none;
+    transition: all .3s;
+    &:hover {
+      color: #DDD;
+    }
+  }
+
+
+#icon {
+  display: inline-block;
+  padding-top: .7em;
+  font-size: 2em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+#nav-bg {
+  background: #222;
+  position: fixed;
+  height: 5em;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+}
+
 </style>
-<script type="text/javascript">
+<!--script type="text/javascript">
 
 $(document).ready(function(){
 	var  mn = $(".two");
@@ -55,7 +120,7 @@ $(window).scroll(function() {
 
 });
 
-</script>
+</script-->
 
 
 <script type="text/javascript"> 
@@ -65,17 +130,40 @@ window.onload = function() {
 </script>
 </head>
 <body>
-
+<nav>
+  <div class='container'>
+    <div class='fontawesome-cog' id='icon'></div>
+    <ul>
+      <li>
+        <a href="./index.html">Home</a>
+      </li>
+      <li>
+        <a href="./events/events.html">Events</a>
+      </li>
+      <li>
+        <a href='./contact.html'>Contact Us</a>
+      </li>
+      <li>
+        <a href='#'>Sponsors</a>
+      </li>
+      <li>
+        <a href='./register.php'>Registration</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 <header>
-	<div class="bgvid">
+	           <div class="bgvid">
                 <img src="./img/dequinoxpng1.png" width="100%" height="100%" class="bg"></img>
                 <video id="vid" loop autoplay height="100%" width="100%">
                    <source src="./music/heyhiheyhi.webm" type="video/webm"><!--webm not supported bt ie .convert to some other (mp4)-->
                    <source src="./music/heyhiheyhi.mp4" type="video/mp4">
                 </video>
             </div>
+
 </header>
-<nav class="clearfix two">
+<div id='nav-bg'></div>
+<!-- nav class="clearfix two">
     <ul class="clearfix">
         <li id="large"><a href="./index.html">Home</a></li>
         <li id="large"><a href="./events/events.html">Events</a></li>
@@ -86,7 +174,7 @@ window.onload = function() {
     </ul>
     <a href="#" id="pull">Menu</a>
 </nav>
-<!--
+<!-a-
 <nav class="main-nav nav1">
       <a class="nav-link activelink" href="./events/events.html">Events</a>
       <a class="nav-link activelink" href="./contact.html">Contact Us</a>
@@ -246,27 +334,33 @@ window.onload = function() {
 
         </script>
 
-        <script type="text/javascript">
-    $(function() {
-      var pull    = $('#pull');
-        menu    = $('nav ul');
-        menuHeight  = menu.height();
+  <script type="text/javascript">
+  var header = $('header');
+var range = 100;
+var op=50;
+$(window).on('scroll', function () {
   
-        $(pull).on('click', function(e) {
-        e.preventDefault();
-        menu.slideToggle();
-      });
+    var scrollTop = $(this).scrollTop();
+    var offset = header.offset().top;
+    var height = header.outerHeight();
+    
+    offset = offset + height /1.2;
+    var calc = 1 - (scrollTop - offset + range) / range;
+  
+    //var op=1.00;//header.css({'opacity':1});
+    console.log(calc);
+    header.css({ 'opacity': calc });
+  
+    if ( calc > '1' ) {
+      header.css({ 'opacity': 1 });
+    } else if ( calc < '0' ) {
+      header.css({ 'opacity': 0 });
+    }
+  
+});
 
-      $(window).resize(function(){
-             headerHeight=header.height();
-            var w = $(window).width();
-            if(w > headerHeight && menu.is(':hidden')) {
-              menu.removeAttr('style');
-            }
-        });
-    });
+</script>
 
-  </script>
   <script type="text/javascript" src="./js/zoomwall.js"></script>
 </body>
 </html>
