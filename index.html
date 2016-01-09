@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width" scale="1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 
 
         <script src='./js/elevator.js'></script>
@@ -20,146 +20,43 @@
    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lobster+Two" />
    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Raleway" />
 
-     <link rel="stylesheet" type="text/css" href="./css/zoomwall.css" />
-<script type="text/javascript" src="./js/zoomwall.js"></script>
+     <link rel="stylesheet" href="./css/zoomwall.css" />
+  <link rel="stylesheet" href="./css/imagegrow.css">
+  <link rel="stylesheet" href="./css/navbar2.css">
+  <link rel="stylesheet" href="./css/mainpage.css">
+
+
 
 <style type="text/css">
 	* {
   box-sizing: border-box;
 }
-
-.div_head{
-  font-size: 45px;
-  font-family:Lobster Two;
-  color:#00bfa5;
-}
-  	  	
- .jumbotron {
-    padding-right: 60px;
-    padding-left: 60px;
-    border-radius: 0px;
-    margin-bottom: 0px;
-    background:#fff;
-}   
-h1, h2, .jumbotron {
-    text-align: center;
-    font-family: Didact Gothic;
-    font-size: 40px;
-}
-
-body {
-  margin: 0;
-  padding-top: 650px;
-}
-header {
-  height: 650px;
-  background: #f07057;
-}
-.main-nav,
-.main {
-  position: relative; 
-}
-.main-nav a{
-    font-size: .9em;
-    text-decoration: none;
-    font-weight: bold;
-	  padding-left: 10px;
-	   padding-right: 10px;
-    text-transform: uppercase;
-    color: #444135;
-    display: inline-block;
-  }
-  .activelink{
-    border-top: 2px solid #f07057;
-    padding-top: 10px;
-  }
-  .main h2{
-    column-span:all;
-    background-color: #fff;
-  }
-.main-nav {
-  text-align: center;
-  background: #fff;
-  height: 80px;
-  padding: 10px 10px 20px 5px;
-  z-index: 150;
-  margin-bottom: -80px;
-  box-shadow: 0 2px 3px rgba(0,0,0,.4);
-}
-header,
-.main-nav-scrolled {
+.scrolled {
   position: fixed;
   width: 100%;
   top: 0;
-}
-.main {
-  background: #fff;/*#f2f2e8;*/
-  padding: 110px 50px 50px;
-}
-
-.bg{
-  z-index: 1;
-  position: absolute;
-  margin-top:-10px; 
-	}
-
-.bgvid{ 
-    position:relative;
-    min-width: 100%;
-    min-height:100%;
-}
-#vid{
-  z-index:-100;
-  }
-.par-back{
-	margin-top: -20px;
-	background: url(./img/bshow.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  position: relative;
-  height: 50em;
-}
-.abt_us{
-	background-size: inherit;
-}
-.z-depth-1,.card-panel,.card,.toast,.btn,.btn-large,.btn-floating,.dropdown-content,.collapsible,.side-nav{
-  -webkit-box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-  -moz-box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-  box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-}
-.contact{
-	background:#696969;
-	padding-top: 0;
-	text-align: center;
-
-}
-.logo-jyc{
-  -ms-transform: scale(0.2,0.2); /* IE 9 */
-    -webkit-transform: scale(0.2,0.2); /* Safari */
-    transform: scale(0.2,0.2);
-
 }
 </style>
 <script type="text/javascript">
 
 $(document).ready(function(){
-	var  mn = $(".main-nav");
-    mns = "main-nav-scrolled";
+	var  mn = $(".two");
+    mns = "scrolled";
     hdr = $('header').height();
 
 $(window).scroll(function() {
-  if( $(this).scrollTop() > hdr ) {
+  if( $(this).scrollTop() >= hdr+70 ) {
     mn.addClass(mns);
   } else {
     mn.removeClass(mns);
   }
 });
 
+
 });
 
 </script>
+
 
 <script type="text/javascript"> 
 window.onload = function() {
@@ -173,16 +70,29 @@ window.onload = function() {
 	<div class="bgvid">
                 <img src="./img/dequinoxpng1.png" width="100%" height="100%" class="bg"></img>
                 <video id="vid" loop autoplay height="100%" width="100%">
-                   <source src="./music/heyhiheyhi.webm" type="video/webm">
+                   <source src="./music/heyhiheyhi.webm" type="video/webm"><!--webm not supported bt ie .convert to some other (mp4)-->
+                   <source src="./music/heyhiheyhi.mp4" type="video/mp4">
                 </video>
             </div>
 </header>
-<nav class="main-nav nav1">
-              <a class="nav-link activelink" href="#">XYZ</a>
-      <a class="nav-link" href="./events/events.html">Events</a>
-      <a class="nav-link" href="#">Sponsers</a>
-      <a class="nav-link" href="#">Contact Us</a>
+<nav class="clearfix two">
+    <ul class="clearfix">
+        <li id="large"><a href="./index.html">Home</a></li>
+        <li id="large"><a href="./events/events.html">Events</a></li>
+        <li id="large"><a href="./contact.html">Contact Us</a></li>
+        <li id="large"><a href="#">Sponsers</a></li>
+        <li id="large"><a href="./register.php">Registration</a></li>
+        
+    </ul>
+    <a href="#" id="pull">Menu</a>
 </nav>
+<!--
+<nav class="main-nav nav1">
+      <a class="nav-link activelink" href="./events/events.html">Events</a>
+      <a class="nav-link activelink" href="./contact.html">Contact Us</a>
+      <a class="nav-link activelink" href="#">Sponsers</a>
+      <a class="nav-link activelink" href="#">Registration</a>
+</nav-->
 
 <div class="main">
 	<section class="abt_us">
@@ -199,15 +109,13 @@ window.onload = function() {
     </section>
   </div>
     <div class="par-back">
-    	<h1>Hello by Adelle</h1>
-		
     </div>
 <div class="main">
 
 	<div class="jumbotron">
               <p><h3><font class="div_head"><br>Testimonials</font></h3></p>
 
-              <hr color="white" />
+              <hr color="white"/>
                  <div class="row" id="test">
                      <div class="col-sm-12">
                         <div class="card-panel lighten-5 z-depth-1">
@@ -269,22 +177,50 @@ window.onload = function() {
           <div class="down-arrow">&#9660;</div>
       </section>
 
-</div>	
+</div>
+<div class="par-back2">
+    </div>	
 
-<div class="container-fluid main contact">
-<p><h3><font class="div_head"><br>Contact Us</font></h3></p>
+<div class="container-fluid main events">
+<p><h3><font class="div_head"><br>D'Equinox  2k15</font></h3></p>
  <hr color="white" />
  <div class="row">
- 	<div class="col-md-4 col-sm-4">
+ 	<div class="col-md-6 col-sm-6">
+    <h3><font class="div_head">Panache</font></h3>
+      <div class="grow pic">
+        <img src="./img/strips.jpg"/ width="50%" height="50%">
+      </div>
 		
  	</div>
- 	<div class="col-md-4 col-sm-4">
- 		
- 	</div>
- 	<div class="col-md-4 col-sm-4">
- 		
+ 	<div class="col-md-6 col-sm-6">
+    <h3><font class="div_head">ProNights</font></h3>
+    <div class="grow pic">
+        <img src="./img/strips.jpg"/ width="50%" height="50%">
+      </div>
  	</div>
  </div>
+ <div class="row">
+  <div class="col-md-11 col-sm-11">
+    <hr>
+  </div>
+ </div>
+
+ <div class="row">
+  <div class="col-md-6 col-sm-6">
+    <h3><font class="div_head">Event3</font></h3>
+      <div class="grow pic">
+        <img src="./img/strips.jpg"/ width="50%" height="50%">
+      </div>
+    
+  </div>
+  <div class="col-md-6 col-sm-6">
+    <h3><font class="div_head">Event4</font></h3>
+    <div class="grow pic">
+        <img src="./img/strips.jpg"/ width="50%" height="50%">
+      </div>
+  </div>
+ </div>
+
 </div>
  <div class="footer main">
             <div class="do-the-thing">
@@ -309,5 +245,28 @@ window.onload = function() {
             });
 
         </script>
+
+        <script type="text/javascript">
+    $(function() {
+      var pull    = $('#pull');
+        menu    = $('nav ul');
+        menuHeight  = menu.height();
+  
+        $(pull).on('click', function(e) {
+        e.preventDefault();
+        menu.slideToggle();
+      });
+
+      $(window).resize(function(){
+             headerHeight=header.height();
+            var w = $(window).width();
+            if(w > headerHeight && menu.is(':hidden')) {
+              menu.removeAttr('style');
+            }
+        });
+    });
+
+  </script>
+  <script type="text/javascript" src="./js/zoomwall.js"></script>
 </body>
 </html>

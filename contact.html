@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Aclonica" />
+
+<link rel="stylesheet" href="./css/navbar2.css">
+  <style type="text/css">
+  	body {
+  margin: 0;
+  
+  background-color: #ffe0cc;
+}
+.main-nav,
+.main {
+  position: fixed; 
+  width: 100%;
+  top: 0;
+}
+* {
+	font-family: Aclonica;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.pic {
+  border: 10px solid #fff;  
+  float: left;
+  height: 18em;
+  width: 18em;
+  margin: 20px;
+  overflow: hidden;
+
+  
+  -webkit-box-shadow: 5px 5px 5px #111;
+          box-shadow: 5px 5px 5px #111;  
+}
+
+/*FOCUS*/
+.focus {
+
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+}
+
+.focus:hover {
+  border: 70px solid #000;
+  border-radius: 50%;
+}
+.dis{
+	margin-top: 100px;
+
+}
+/*NAVBAR*/
+nav{
+	position: fixed;
+}
+.address{
+	padding-left: 20%;
+	float: left;
+}
+
+.btn {
+  background: #db5a5a;
+  background-image: -webkit-linear-gradient(top, #db5a5a, #f0543c);
+  background-image: -moz-linear-gradient(top, #db5a5a, #f0543c);
+  background-image: -ms-linear-gradient(top, #db5a5a, #f0543c);
+  background-image: -o-linear-gradient(top, #db5a5a, #f0543c);
+  background-image: linear-gradient(to bottom, #db5a5a, #f0543c);
+  -webkit-border-radius: 34;
+  -moz-border-radius: 34;
+  border-radius: 34px;
+  -webkit-box-shadow: 4px 4px 12px #666666;
+  -moz-box-shadow: 4px 4px 12px #666666;
+  box-shadow: 4px 4px 12px #666666;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 23px;
+  padding: 11px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #fc3c46;
+  text-decoration: none;
+}
+  </style>
+  <script type="text/javascript">
+		$(function() {
+			var pull 		= $('#pull');
+				menu 		= $('nav ul');
+				menuHeight	= menu.height();
+
+			$(pull).on('click', function(e) {
+				e.preventDefault();
+				menu.slideToggle();
+			});
+
+			$(window).resize(function(){
+        		var w = $(window).width();
+        		if(w > 320 && menu.is(':hidden')) {
+        			menu.removeAttr('style');
+        		}
+    		});
+		});
+
+  </script>
+
+</head>
+<body>
+<nav class="clearfix two">
+    <ul class="clearfix">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./events/events.html">Events</a></li>
+        <li><a href="./contect.html">Contact Us</a></li>
+        <li><a href="#">Sponsers</a></li>
+        <li><a href="./register.php">Registration</a></li>
+        
+    </ul>
+    <a href="#" id="pull">Menu</a>
+</nav>
+	<!--
+	<nav class="main-nav nav1">
+	  <a class="nav-link activelink" href="./index.html">Home</a>
+      <a class="nav-link activelink" href="./events/events.html">Events</a>
+      <a class="nav-link activelink" href="#">Contact Us</a>
+      <a class="nav-link activelink" href="#">Sponsers</a>
+      <a class="nav-link activelink" href="#">Registration</a>
+	</nav-->
+	<div class="container">
+		<div class="dis">
+			<div class="row">
+			<div class="col-md-6 col-sm-6 address">
+				<p>Jaypee University of Engineering & Technology<br>A-B Road,<br> District Guna,<br> Raghogarh,<br> Madhya Pradesh 473226<br></p>
+			</div>
+			<div class="col-md-6 col-sm-6 address">
+				<a href="https://www.google.co.in/maps/place/Jaypee+University+of+Engineering+%26+Technology/@24.4345067,77.1592172,17z/data=!4m2!3m1!1s0x397aff3abbbad69f:0x9af2aa865b395399" target="_blank"><button class="btn">Get Directions</button></a>
+
+			</div>
+		</div>
+		<center><font size="5px" color="Chocolate "><p>Directly contact a specific department</p></font></center>
+
+		<hr/>
+		<hr/>
+		</div>
+		<div class="row">
+			<div class="col-md-3 col-sm-3 dis">
+				<h3>Hospitality</h3>
+			</div>
+			<div class="col-md-4 col-sm-4">
+				<div class="focus pic">
+					<img src="./img/strips.jpg" width="300px" height="300px">
+				</div>
+				<div>
+					<center><p>Email:abc@gmail.com<br>1234567890</p></center>
+
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-4">
+				<div class="focus pic">
+					<img src="./img/strips.jpg" width="300px" height="300px">
+				</div>
+				<div>
+					<center><p>Email:abc@gmail.com<br>1234567890</p></center>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 col-sm-3 dis">
+				<h3>Coordinators</h3>
+			</div>
+			<div class="col-md-4 col-sm-4">
+				<div class="focus pic">
+					<img src="./img/strips.jpg" width="300px" height="300px">
+				</div>
+				<div>
+					<center><p>Email:abc@gmail.com<br>1234567890</p></center>
+
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-4">
+				<div class="focus pic">
+					<img src="./img/strips.jpg" width="300px" height="300px">
+				</div>
+				<div>
+					<center><p>Email:abc@gmail.com<br>1234567890</p></center>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 col-sm-3 dis">
+				<h3>Hospitality</h3>
+			</div>
+			<div class="col-md-4 col-sm-4">
+				<div class="focus pic">
+					<img src="./img/strips.jpg" width="300px" height="300px">
+				</div>
+				<div>
+					<center><p>Email:abc@gmail.com<br>1234567890</p></center>
+
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-4">
+				<div class="focus pic">
+					<img src="./img/strips.jpg" width="300px" height="300px">
+				</div>
+				<div>
+					<center><p>Email:abc@gmail.com<br>1234567890</p></center>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
