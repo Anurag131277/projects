@@ -9,91 +9,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Aclonica" />
 
-<link rel="stylesheet" href="./css/navbar2.css">
-  <style type="text/css">
-  	body {
-  margin: 0;
+<link rel="stylesheet" href="./css/contact.css">
+<link rel="stylesheet" href="./css/nav.css">
   
-  background-color: #ffe0cc;
-}
-.main-nav,
-.main {
-  position: fixed; 
-  width: 100%;
-  top: 0;
-}
-* {
-	font-family: Aclonica;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-      -ms-box-sizing: border-box;
-          box-sizing: border-box;
-}
-.pic {
-  border: 10px solid #fff;  
-  float: left;
-  height: 18em;
-  width: 18em;
-  margin: 20px;
-  overflow: hidden;
-
-  
-  -webkit-box-shadow: 5px 5px 5px #111;
-          box-shadow: 5px 5px 5px #111;  
-}
-
-/*FOCUS*/
-.focus {
-
-  -webkit-transition: all 1s ease;
-     -moz-transition: all 1s ease;
-       -o-transition: all 1s ease;
-      -ms-transition: all 1s ease;
-          transition: all 1s ease;
-}
-
-.focus:hover {
-  border: 70px solid #000;
-  border-radius: 50%;
-}
-.dis{
-	margin-top: 100px;
-
-}
-/*NAVBAR*/
-nav{
-	position: fixed;
-}
-.address{
-	padding-left: 20%;
-	float: left;
-}
-
-.btn {
-  background: #db5a5a;
-  background-image: -webkit-linear-gradient(top, #db5a5a, #f0543c);
-  background-image: -moz-linear-gradient(top, #db5a5a, #f0543c);
-  background-image: -ms-linear-gradient(top, #db5a5a, #f0543c);
-  background-image: -o-linear-gradient(top, #db5a5a, #f0543c);
-  background-image: linear-gradient(to bottom, #db5a5a, #f0543c);
-  -webkit-border-radius: 34;
-  -moz-border-radius: 34;
-  border-radius: 34px;
-  -webkit-box-shadow: 4px 4px 12px #666666;
-  -moz-box-shadow: 4px 4px 12px #666666;
-  box-shadow: 4px 4px 12px #666666;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 23px;
-  padding: 11px;
-  text-decoration: none;
-}
-
-.btn:hover {
-  background: #fc3c46;
-  text-decoration: none;
-}
-  </style>
   <script type="text/javascript">
 		$(function() {
 			var pull 		= $('#pull');
@@ -118,35 +36,52 @@ nav{
 </head>
 <body>
 <nav class="clearfix two">
+<div class='fontawesome-cog' id='icon'></div>
     <ul class="clearfix">
         <li><a href="./index.html">Home</a></li>
         <li><a href="./events/events.html">Events</a></li>
-        <li><a href="./contect.html">Contact Us</a></li>
-        <li><a href="#">Sponsers</a></li>
+        <li><a href="./contact.html">Contact Us</a></li>
+        <li ><a href="./team.html">Team</a></li>
+        <li><a href="./sponsor.html" target="_blanck">Sponsors</a></li>
+        <li><a href="./gallery.html">Gallery</a></li>
         <li><a href="./register.php">Registration</a></li>
         
     </ul>
     <a href="#" id="pull">Menu</a>
 </nav>
-	<!--
-	<nav class="main-nav nav1">
-	  <a class="nav-link activelink" href="./index.html">Home</a>
-      <a class="nav-link activelink" href="./events/events.html">Events</a>
-      <a class="nav-link activelink" href="#">Contact Us</a>
-      <a class="nav-link activelink" href="#">Sponsers</a>
-      <a class="nav-link activelink" href="#">Registration</a>
-	</nav-->
 	<div class="container">
 		<div class="dis">
 			<div class="row">
 			<div class="col-md-6 col-sm-6 address">
-				<p>Jaypee University of Engineering & Technology<br>A-B Road,<br> District Guna,<br> Raghogarh,<br> Madhya Pradesh 473226<br></p>
+			<address>
+				Jaypee University of Engineering & Technology<br>A-B Road,<br> District Guna,<br> Raghogarh,<br> Madhya Pradesh 473226<br>
+			</address>
+				
 			</div>
 			<div class="col-md-6 col-sm-6 address">
 				<a href="https://www.google.co.in/maps/place/Jaypee+University+of+Engineering+%26+Technology/@24.4345067,77.1592172,17z/data=!4m2!3m1!1s0x397aff3abbbad69f:0x9af2aa865b395399" target="_blank"><button class="btn">Get Directions</button></a>
 
 			</div>
 		</div>
+		
+
+
+		<div class="row">
+			<div class="col-md-12 col-lg-12 col-sm-12">
+				<p id="para">
+				<h5>HOW TO REACH JUET, GUNA:</h5><br>
+ The campus is 20 minutes (15kms) away from the nearest railways station, i.e. RUTHIYAI JUNCTION (RTA). Also about 40 minutes from GUNA railway station .You can hire a taxi or an auto-rikshaw from outside the Railway stations to reach the campus. It is situated on N.H. 3 (A.B. Road) so busses run frequently. For further details contact: Samarth (phone no.) Utkarsh (phone no.)
+
+				</p>
+				<p>
+				For any Other Query Contact us at: <em>sangharsh.juet.7@gmail.com</em>
+				</p>
+
+			</div>
+
+
+		</div>
+		<br><br>
 		<center><font size="5px" color="Chocolate "><p>Directly contact a specific department</p></font></center>
 
 		<hr/>
@@ -158,7 +93,7 @@ nav{
 			</div>
 			<div class="col-md-4 col-sm-4">
 				<div class="focus pic">
-					<img src="./img/strips.jpg" width="300px" height="300px">
+					<img src="./img/bshow.jpg" width="300px" height="300px">
 				</div>
 				<div>
 					<center><p>Email:abc@gmail.com<br>1234567890</p></center>
@@ -167,7 +102,7 @@ nav{
 			</div>
 			<div class="col-md-4 col-sm-4">
 				<div class="focus pic">
-					<img src="./img/strips.jpg" width="300px" height="300px">
+					<img src="./img/bshow.jpg" width="300px" height="300px">
 				</div>
 				<div>
 					<center><p>Email:abc@gmail.com<br>1234567890</p></center>
@@ -180,7 +115,7 @@ nav{
 			</div>
 			<div class="col-md-4 col-sm-4">
 				<div class="focus pic">
-					<img src="./img/strips.jpg" width="300px" height="300px">
+					<img src="./img/bshow.jpg" width="300px" height="300px">
 				</div>
 				<div>
 					<center><p>Email:abc@gmail.com<br>1234567890</p></center>
@@ -189,7 +124,7 @@ nav{
 			</div>
 			<div class="col-md-4 col-sm-4">
 				<div class="focus pic">
-					<img src="./img/strips.jpg" width="300px" height="300px">
+					<img src="./img/bshow.jpg" width="300px" height="300px">
 				</div>
 				<div>
 					<center><p>Email:abc@gmail.com<br>1234567890</p></center>
@@ -198,11 +133,11 @@ nav{
 		</div>
 		<div class="row">
 			<div class="col-md-3 col-sm-3 dis">
-				<h3>Hospitality</h3>
+				<h3>Managers</h3>
 			</div>
 			<div class="col-md-4 col-sm-4">
 				<div class="focus pic">
-					<img src="./img/strips.jpg" width="300px" height="300px">
+					<img src="./img/bshow.jpg" width="300px" height="300px">
 				</div>
 				<div>
 					<center><p>Email:abc@gmail.com<br>1234567890</p></center>
@@ -211,7 +146,7 @@ nav{
 			</div>
 			<div class="col-md-4 col-sm-4">
 				<div class="focus pic">
-					<img src="./img/strips.jpg" width="300px" height="300px">
+					<img src="./img/bshow.jpg" width="300px" height="300px">
 				</div>
 				<div>
 					<center><p>Email:abc@gmail.com<br>1234567890</p></center>

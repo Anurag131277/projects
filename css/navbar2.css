@@ -7,7 +7,7 @@ nav {
     font-size: 11pt;
     font-family: 'Fantasy', Arial, sans-serif;
     font-weight: bold;
-    
+    color:darkgoldenrod;
     z-index: 1;
     border-bottom: 2px solid #283744;
 }
@@ -34,7 +34,8 @@ nav li {
     *zoom: 1;
 }
 .two{
-	   background-image: url('../img/back.jpg') ;
+	   /*background-image: url('../img/back.jpg') ;*/
+       background: #222;
     -webkit-background-size: cover; /* For WebKit*/
     -moz-background-size: cover;    /* Mozilla*/
     -o-background-size: cover;      /* Opera*/
@@ -46,6 +47,7 @@ nav a {
     width: 120px;
     text-align: center;
     text-decoration: none;
+    color:white;
     line-height: 40px;
     text-shadow: 1px 1px 0px #283744;
     transition: all 1s ease-in-out;
@@ -61,6 +63,7 @@ nav li:last-child a {
 }
 nav a:hover, nav a:active {
     text-decoration: none;
+    text-transform: uppercase;
 }
 nav a#pull {
     display: none;

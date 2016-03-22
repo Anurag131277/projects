@@ -13,8 +13,8 @@
 	<link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="../css/styleevents.css"> <!-- Resource style -->
 	<script src="../js/modernizr.js"></script> <!-- Modernizr -->
-	<script src='../js/elevator.js'></script>
-  	<link rel="stylesheet" href="../css/navbar2.css">
+  	<link rel="stylesheet" href="../css/nav.css">
+
 	<title>D'Equinox | Events</title>
 	<style type="text/css">
 		h2{
@@ -26,23 +26,37 @@
 		li{
 			background-image: url("./img/strips.jpg");
 		}*/
-		.main-nav,
-		.main {
-		  position: absolute; 
-		  width: 100%;
-		  top: 0;
-		}
-		.footer{
-			position: fixed;
-			top: 500px;
-		}
+		
 		@media only screen and (max-width: 600px) {
 			img{
 				display: none;
 			}
 
 		}
-	</style>
+			/* Preloader */
+#preloader {
+    overflow: hidden;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:#222; /* change if the mask should have another color then white */
+    z-index:99; /* makes sure it stays on top */
+}
+
+#status {
+    width:80%;
+    height:80%;
+    position:absolute;
+     /* centers the loading animation horizontally one the screen */
+    /* centers the loading animation vertically one the screen */
+    background-image:url(./img/dlogo.png); /* path to your loading animation */
+    background-repeat:no-repeat;
+    background-size: cover;
+    /*margin:-100px 0 0 -100px; /* is width and height divided by two */
+}
+</style>
 
 	<script type="text/javascript">
 		$(function() {
@@ -66,20 +80,20 @@
   </script>
 </head>
 <body>
-<!--nav class="main-nav nav1">
-			  <a class="nav-link activelink" href="../index.html">Home</a>
-		      <a class="nav-link activelink" href="./events/events.html">Events</a>
-		      <a class="nav-link activelink" href="#">Contact Us</a>
-		      <a class="nav-link activelink" href="#">Sponsers</a>
-		      <a class="nav-link activelink" href="#">Registration</a>
-</nav-->
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status">&nbsp;</div>
+</div>
+
 <nav class="clearfix two">
+<div class='fontawesome-cog' id='icon'></div>
     <ul class="clearfix">
-        <li id="large"><a href="../index.html">Home</a></li>
-        <li id="large"><a href="./events.html">Events</a></li>
-        <li id="large"><a href="../contact.html">Contact Us</a></li>
-        <li id="large"><a href="#">Sponsers</a></li>
-        <li id="large"><a href="../register.php">Registration</a></li>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="./events.html">Events</a></li>
+        <li><a href="../gallery.html">Gallery</a></li>
+        <li ><a href="../team.html">Team</a></li>
+        <li><a href="../sponsor.html" target="_blanck">Sponsors</a></li>
+        <li><a href="../register.php">Registration</a></li>
         
     </ul>
     <a href="#" id="pull">Menu</a>
@@ -87,235 +101,108 @@
 	<main class="cd-main">
 		<ul class="cd-gallery">
 			<li class="cd-item 1" >
-				<a class="dark-text" href="./panache.html">
+				<a class="dark-text" href="./cricket.html">
 					<div>
-						<img src="./img/panache.jpg" width="50%" height="40%">
-						<h2>PANaCHE</h2>
-						<p>The hunt for MR and MISS D'EQUINOX 2016.</p>
+						<img src="./img/crick.gif" height="80%">
+						<h2>Cricket</h2>
 						<b>View More</b>
 					</div>
 				</a>
 			</li>
 
 			<li class="cd-item">
-				<a class="dark-text" href="./alfaaz.html">
+				<a class="dark-text" href="./volleyball.html">
 					<div>
-						<img src="./img/anand.jpg" width="50%" height="40%">
-						<h2>Alfaaz</h2>
-						<p>Feel the songs, poetry and shayaris you like are good enough ..its a moment to share them with everyone.</p>
+						<img src="./img/volley.gif" height="25%">
+						<h2>VolleyBall</h2>
 						<b>View More</b>
 					</div>
 				</a>
 			</li>
 
 			<li class="cd-item">
-				<a class="dark-text" href="./guess.html">
+				<a class="dark-text" href="./badminton.html">
 					<div>
-						<img src="./img/who.jpg" width="50%" height="40%">
-						<h2>guess who ?</h2>
-						<p>Think you have enough knowledge???<br> Wanna test it out??</p>
+						<img src="./img/badminton.gif" height="70%">
+						<h2>badminton</h2>
 						<b>View More</b>
 					</div>
 				</a>
 			</li>
  
 			<li class="cd-item">
-				<a class="dark-text" href="./connect.html">
+				<a class="dark-text" href="./basketball.html">
 					<div>
-						<img src="./img/connected.png" width="50%" height="50%">
-						<h2>Connected</h2>
-						<p>Show how deeply are you 'CONNECTED' with your close ones.</p>
+						<img src="./img/basket.gif" >
+						<h2>basketball</h2>
+						
 						<b>View More</b>
 					</div>
 				</a>
 			</li>
 
 			<li class="cd-item">
-				<a class="dark-text" href="./jam.html">
+				<a class="dark-text" href="./football.html">
 					<div>
-						<h2>Jam</h2>
-						<p></p>
+						<img src="./img/football.png" width="50%" height="35%">
+						<h2>football</h2>
+						
 						<b>View More</b>
 					</div>
 				</a>
 			</li>
 
 			<li class="cd-item">
-				<a class="dark-text" href="./lemonrace.html">
+				<a class="dark-text" href="./handball.html">
 					<div>
-						<img src="./img/lemon.jpg" width="50%" height="50%">
-						<h2>LEMON RACE</h2>
-						<p></p>
+						<img src="./img/hand.gif" width="50%" height="35%">
+						<h2>handball</h2>
+						
 						<b>View More</b>
 					</div>
 				</a>
 			</li>
 
 			<li class="cd-item">
-				<a class="dark-text" href="./nameplace.html">
+				<a class="dark-text" href="./tabletennis.html">
 					<div>
-						<h2>NAME-PLACE-ANIMAL-THING</h2>
-						<p></p>
+						<img src="./img/tt.gif" width="50%" height="50%">
+						<h2>table tennis</h2>
+					
 						<b>View More</b>
 					</div>
 				</a>
 			</li>
 
 			<li class="cd-item">
-				<a class="dark-text" href="./spellbee.html">
+				<a class="dark-text" href="./chess.html">
 					<div>
-						<img src="./img/spellbee.jpg" width="50%" height="50%">
-						<h2>SPELL BEE</h2>
-						<p></p>
+						<img src="./img/chess.jpg"  height="50%">
+						<h2>Chess</h2>
+							
 						<b>View More</b>
 					</div>
 				</a>
+			</li>
+			<li class="cd-item">
+				<a class="dark-text" href="./chess.html">
+					<div>
+						<img src="./img/chess.jpg"  height="50%">
+						<h2>LAN</h2>
+							
+						<b>View More</b>
+					</div>
+				</a>
+			</li>
+			<li class="cd-item">
+				
 			</li>
 
-			<li class="cd-item">
-				<a class="dark-text" href="./tonguetwist.html">
-					<div>
-						<img src="./img/twister.jpg" width="50%" height="50%">
-						<h2>TONGUE TWISTER</h2>
-						<p></p>
-						<b>View More</b>
-					</div>
-				</a>
-			</li>
-
-			<li class="cd-item">
-				<a class="dark-text" href="./tambola.html">
-					<div>
-						<h2>English Tambola</h2>
-						<p></p>
-						<b>View More</b>
-					</div>
-				</a>
-			</li>
-
-			<li class="cd-item">
-				<a class="dark-text" href="./kalakriti.html">
-					<div>
-						<h2>kalakriti</h2>
-						<p></p>
-						<b>View More</b>
-					</div>
-				</a>
-			</li>
-			<li class="cd-item">
-				<a class="dark-text" href="./takeshi.html">
-					<div>
-						<h2>TAKESHI CASTLE</h2>
-						<p></p>
-						<b>View More</b>
-					</div>
-				</a>
-			</li>
-			<li class="cd-item">
-				<a class="dark-text" href="./minutetowinit.html">
-					<div>
-						<h2>MINUTE TO WIN IT</h2>
-						<p></p>
-						<b>View More</b>
-					</div>
-				</a>
-			</li>
-			<li class="cd-item">
-				<a class="dark-text" href="./tattoo.html">
-					<div>
-						<h2>TATTOO MAKING</h2>
-						<p></p>
-						<b>View More</b>
-					</div>
-				</a>
-			</li>
-			<li class="cd-item">
-				<a class="dark-text" href="./tugofwar.html">
-					<div>
-						<h2>tug of war</h2>
-						<p></p>
-						<b>View More</b>
-					</div>
-				</a>
-			</li>
-			<li class="cd-item">
-				<a class="dark-text" href="./lan.html">
-					<div>
-						<h2>lan</h2>
-						<p></p>
-						<b>View More</b>
-					</div>
-				</a>
-			</li>
-			<li class="cd-item">
-				<a class="dark-text" href="./treasurehunt.html">
-					<div>
-						<h2>Treasure hunt</h2>
-						<p></p>
-						<b>View More</b>
-					</div>
-				</a>
-			</li>
-			<li class="cd-item">
-				<a class="dark-text" href="./dtrouble.html">
-					<div>
-						<h2>Double Trouble</h2>
-						<p></p>
-						<b>View More</b>
-					</div>
-				</a>
-			</li>
-			<li class="cd-item">
-				<a class="dark-text" href="./paint.html">
-					<div>
-						<h2>HAIR AND FACE PAINTING</h2>
-						<p></p>
-						<b>View More</b>
-					</div>
-				</a>
-			</li>
-			<li class="cd-item">
-				<a class="dark-text" href="./lolfie.html">
-					<div>
-						<h2>lolfie</h2>
-						<p></p>
-						<b>View More</b>
-					</div>
-				</a>
-			</li>
-			<li class="cd-item">
-				<a class="dark-text" href="./clickword.html">
-					<div>
-						<h2>Click-o-word</h2>
-						<p></p>
-						<b>View More</b>
-					</div>
-				</a>
-			</li>
-			<li class="cd-item">
-				<a class="dark-text" href="./sensor.html">
-					<div>
-						<h2>sensor</h2>
-						<p></p>
-						<b>View More</b>
-					</div>
-				</a>
-			</li>
-
+			
 		</ul> <!-- .cd-gallery -->
 		
 	</main> <!-- .cd-main -->
-<div class="footer">
-            <div class="do-the-thing">
-                <div class="elevator">
-                    <svg class="sweet-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" height="100px" width="100px">
-                        <path d="M70,47.5H30c-1.4,0-2.5,1.1-2.5,2.5v40c0,1.4,1.1,2.5,2.5,2.5h40c1.4,0,2.5-1.1,2.5-2.5V50C72.5,48.6,71.4,47.5,70,47.5z   M47.5,87.5h-5v-25h5V87.5z M57.5,87.5h-5v-25h5V87.5z M67.5,87.5h-5V60c0-1.4-1.1-2.5-2.5-2.5H40c-1.4,0-2.5,1.1-2.5,2.5v27.5h-5  v-35h35V87.5z"/>
-                        <path d="M50,42.5c1.4,0,2.5-1.1,2.5-2.5V16l5.7,5.7c0.5,0.5,1.1,0.7,1.8,0.7s1.3-0.2,1.8-0.7c1-1,1-2.6,0-3.5l-10-10  c-1-1-2.6-1-3.5,0l-10,10c-1,1-1,2.6,0,3.5c1,1,2.6,1,3.5,0l5.7-5.7v24C47.5,41.4,48.6,42.5,50,42.5z"/>
-                    </svg>
-                    Back to Top
-                </div>
-            </div>
-        </div>
+
 	<div class="cd-folding-panel">
 		
 		<div class="fold-left"></div> <!-- this is the left fold -->
@@ -328,21 +215,17 @@
 
 		<a class="cd-close" href="#0"></a>
 	</div> <!-- .cd-folding-panel -->
-
-
-         <script>
-
-            // Simple elevator usage.
-            var elementButton = document.querySelector('.elevator');
-            var elevator = new Elevator({
-                element: elementButton,
-                mainAudio: '../music/elevator.mp3', // Music from http://www.bensound.com/
-                endAudio:  '../music/ding.mp3'
-            });
-
-        </script>
          
-<script src="../js/jquery-2.1.1.js"></script>
 <script src="../js/mainevents.js"></script> <!-- Resource jQuery -->
+  <!-- Preloader -->
+<script type="text/javascript">
+    //<![CDATA[
+        $(window).load(function() { // makes sure the whole site is loaded
+            $('#status').fadeOut(); // will first fade out the loading animation
+            $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
+            $('body').delay(350).css({'overflow':'visible'});
+        })
+    //]]>
+</script>
 </body>
 </html>

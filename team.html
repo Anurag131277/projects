@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Black+Ops+One" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Aclonica" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Permanent+Marker" />
+  <link rel="stylesheet" href="./css/nav.css">
+  
+<style type="text/css">
+body{
+	background-color: rgb(230 ,230 ,250);
+}
+
+/*circle css*/
+.ch-grid {
+	margin: 20px 0 0 0;
+	padding: 0;
+	list-style: none;
+	display: block;
+	text-align: center;
+	width: 100%;
+}
+
+.ch-grid:after,
+.ch-item:before {
+	content: '';
+    display: table;
+}
+
+.ch-grid:after {
+	clear: both;
+}
+
+.ch-grid li {
+	width: 220px;
+	height: 220px;
+	display: inline-block;
+	margin: 30px;
+}
+
+
+/*circle css ends*/
+	
+/* Preloader */
+
+#preloader {
+    overflow: hidden;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:#222; /* change if the mask should have another color then white */
+    z-index:99; /* makes sure it stays on top */
+}
+
+#status {
+    width:80%;
+    height:80%;
+    position:absolute;
+     /* centers the loading animation horizontally one the screen */
+    /* centers the loading animation vertically one the screen */
+    background-image:url(./img/dlogo.png); /* path to your loading animation */
+    background-repeat:no-repeat;
+    background-size: cover;
+    /*margin:-100px 0 0 -100px; /* is width and height divided by two */
+}
+
+/*Preloader Ends here*/
+.nav > li > a{
+	color: black;
+}
+
+.nav-tabs > li > a:hover{
+	background-color: green;
+	color: white;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover{
+    background-color: green !important;
+    color: white;
+}
+.nav a{
+	font-size: 20px;
+	font-family: 'Black Ops One';
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+}
+#headingo{
+	color: rgb(72 ,61 ,139);
+	font-family: 'Permanent Marker';
+	font-size: 40px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+	margin-bottom: 20px;
+}
+</style>
+<style type="text/css">
+	.ch-item {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	position: relative;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+	cursor: default;
+}
+
+.ch-info-wrap{
+	position: absolute;
+	width: 180px;
+	height: 180px;
+	border-radius: 50%;
+
+	-webkit-perspective: 800px;
+	-moz-perspective: 800px;
+	-o-perspective: 800px;
+	-ms-perspective: 800px;
+	perspective: 800px;
+
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+
+	top: 20px;
+	left: 20px;
+	background: #f9f9f9 url(../images/bg.jpg);
+	box-shadow: 
+		0 0 0 20px rgba(255,255,255,0.2), 
+		inset 0 0 3px rgba(115,114, 23, 0.8);
+
+}
+
+.ch-info{
+	position: absolute;
+	width: 180px;
+	height: 180px;
+	border-radius: 50%;
+
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+		
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+
+}
+
+.ch-info > div {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background-position: center center;
+
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.ch-info .ch-info-back {
+	-webkit-transform: rotate3d(0,1,0,180deg);
+	-moz-transform: rotate3d(0,1,0,180deg);
+	-o-transform: rotate3d(0,1,0,180deg);
+	-ms-transform: rotate3d(0,1,0,180deg);
+	transform: rotate3d(0,1,0,180deg);
+	
+	background: #000;
+}
+
+.ch-img-1 { 
+	background-image: url(img/1.jpg);
+}
+
+.ch-img-2 { 
+	background-image: url(img/1.jpg);
+}
+
+.ch-img-3 { 
+	background-image: url(img/1.jpg);
+}
+
+.ch-info h3 {
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 14px;
+	margin: 0 15px;
+	padding: 40px 0 0 0;
+	height: 90px;
+	font-family: 'Open Sans', Arial, sans-serif;
+	text-shadow: 
+		0 0 1px #fff, 
+		0 1px 2px rgba(0,0,0,0.3);
+}
+
+.ch-info p {
+	color: #fff;
+	padding: 10px 5px;
+	font-style: italic;
+	margin: 0 30px;
+	font-size: 12px;
+	border-top: 1px solid rgba(255,255,255,0.5);
+}
+
+.ch-info p a {
+	display: block;
+	color: #fff;
+	color: rgba(255,255,255,0.7);
+	font-style: normal;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 9px;
+	letter-spacing: 1px;
+	padding-top: 4px;
+	font-family: 'Open Sans', Arial, sans-serif;
+}
+
+.ch-info p a:hover {
+	color: #fff222;
+	color: rgba(255,242,34, 0.8);
+}
+
+.ch-item:hover .ch-info-wrap {
+	box-shadow: 
+		0 0 0 0 rgba(255,255,255,0.8), 
+		inset 0 0 3px rgba(115,114, 23, 0.8);
+}
+
+.ch-item:hover .ch-info {
+	-webkit-transform: rotate3d(0,1,0,-180deg);
+	-moz-transform: rotate3d(0,1,0,-180deg);
+	-o-transform: rotate3d(0,1,0,-180deg);
+	-ms-transform: rotate3d(0,1,0,-180deg);
+	transform: rotate3d(0,1,0,-180deg);
+}
+/*reach us */
+.address{
+	
+	float: left;
+}
+
+.btn {
+  background: #db5a5a;
+  background-image: -webkit-linear-gradient(top, #db5a5a, #f0543c);
+  background-image: -moz-linear-gradient(top, #db5a5a, #f0543c);
+  background-image: -ms-linear-gradient(top, #db5a5a, #f0543c);
+  background-image: -o-linear-gradient(top, #db5a5a, #f0543c);
+  background-image: linear-gradient(to bottom, #db5a5a, #f0543c);
+  -webkit-border-radius: 34;
+  -moz-border-radius: 34;
+  border-radius: 34px;
+  -webkit-box-shadow: 4px 4px 12px #666666;
+  -moz-box-shadow: 4px 4px 12px #666666;
+  box-shadow: 4px 4px 12px #666666;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 23px;
+  padding: 11px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #fc3c46;
+  text-decoration: none;
+}
+#para{
+	font-size: 16px;
+	font-style: italic;
+}
+
+#menu6{
+	margin-top: 50px;
+	font-family:'aclonica'; 
+}
+</style>
+
+
+
+
+<script type="text/javascript">
+		$(function() {
+			var pull 		= $('#pull');
+				menu 		= $('nav ul');
+				menuHeight	= menu.height();
+
+			$(pull).on('click', function(e) {
+				e.preventDefault();
+				menu.slideToggle();
+			});
+
+			$(window).resize(function(){
+        		var w = $(window).width();
+        		if(w > 320 && menu.is(':hidden')) {
+        			menu.removeAttr('style');
+        		}
+    		});
+		});
+
+  </script>
+
+
+
+
+</head>
+<body>
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status">&nbsp;</div>
+</div>
+
+
+<nav class="clearfix two">
+<div class='fontawesome-cog' id='icon'></div>
+    <ul class="clearfix">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./events/events.html">Events</a></li>
+        <li><a href="./gallery.html">Gallery</a></li>
+        <li ><a href="./team.html">Team</a></li>
+        <li><a href="./sponsor.html" target="_blanck">Sponsors</a></li>
+        <li><a href="./register.php">Registration</a></li>
+        
+    </ul>
+    <a href="#" id="pull">Menu</a>
+</nav>
+<div class="container">
+	<div calss="row">
+		<div class="col-md-10 col-sm-10 col-lg-10">
+			<center><h1 id="headingo">Organizing Team</h1></center>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-lg-10 col-md-10 col-sm-6">
+				<ul class="nav nav-tabs">
+				    <li class="active"><a data-toggle="tab" href="#home">Core</a></li>
+				    <li><a data-toggle="tab" href="#menu1">Event</a></li>
+				    <li><a data-toggle="tab" href="#menu2">Publicity</a></li>
+				    <li><a data-toggle="tab" href="#menu3">Marketing</a></li>
+				    <li><a data-toggle="tab" href="#menu4">Hospitality</a></li>
+				    <li><a data-toggle="tab" href="#menu5">TechUnit</a></li>
+				    <li><a data-toggle="tab" href="#menu6">How to ReachUs</a></li>
+				  </ul>
+					<div class="tab-content">
+					    <div id="home" class="tab-pane fade in active">
+					      <h3>HOME</h3>
+					      <section class="main">
+			
+									<ul class="ch-grid">
+										<li>
+											<div class="ch-item ch-img-1">				
+												<div class="ch-info-wrap">
+													<div class="ch-info">
+														<div class="ch-info-front ch-img-1"></div>
+														<div class="ch-info-back">
+															<h3>Mohit Jaiswal</h3>
+															<p>Phone:<br>Email:</p>
+														</div>	
+													</div>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="ch-item ch-img-2">
+												<div class="ch-info-wrap">
+													<div class="ch-info">
+														<div class="ch-info-front ch-img-2"></div>
+														<div class="ch-info-back">
+															<h3>Akshay</h3>
+															<p>Phone:<br>Email:</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="ch-item ch-img-3">
+												<div class="ch-info-wrap">
+													<div class="ch-info">
+														<div class="ch-info-front ch-img-3"></div>
+														<div class="ch-info-back">
+															<h3>Pranay</h3>
+															<p>Phone:<br>Email:</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+									
+								</section>
+					    </div>
+					    <div id="menu1" class="tab-pane fade">
+					      <h3>Menu 1</h3>
+					      <section class="main">
+			
+									<ul class="ch-grid">
+										<li>
+											<div class="ch-item ch-img-1">				
+												<div class="ch-info-wrap">
+													<div class="ch-info">
+														<div class="ch-info-front ch-img-1"></div>
+														<div class="ch-info-back">
+															<h3>ABCD</h3>
+															<p>Phone:<br>Email:</p>
+														</div>	
+													</div>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="ch-item ch-img-2">
+												<div class="ch-info-wrap">
+													<div class="ch-info">
+														<div class="ch-info-front ch-img-2"></div>
+														<div class="ch-info-back">
+															<h3>XYZ</h3>
+															<p>Phone:<br>Email:</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="ch-item ch-img-3">
+												<div class="ch-info-wrap">
+													<div class="ch-info">
+														<div class="ch-info-front ch-img-3"></div>
+														<div class="ch-info-back">
+															<h3>WXY</h3>
+															<p>Phone:<br>Email:</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+									
+								</section>
+					    </div>
+					    <div id="menu2" class="tab-pane fade">
+					      <h3>Menu 2</h3>
+					      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+					    </div>
+					    <div id="menu3" class="tab-pane fade">
+					      <h3>Menu 3</h3>
+					      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+					    </div>
+					     <div id="menu4" class="tab-pane fade">
+					      <h3>Menu 4</h3>
+					      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+					    </div>
+					     <div id="menu5" class="tab-pane fade">
+					      <h3>Menu 5</h3>
+					      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+					    </div>
+					    <div id="menu6" class="tab-pane fade">
+					      <div class="container">
+					      	<div class="row">
+								<div class="col-md-6 col-sm-6 address">
+								<address>
+									Jaypee University of Engineering & Technology<br>A-B Road,<br> District Guna,<br> Raghogarh,<br> Madhya Pradesh 473226<br>
+								</address>
+									
+								</div>
+								<div class="col-md-6 col-sm-6 address">
+									<a href="https://www.google.co.in/maps/place/Jaypee+University+of+Engineering+%26+Technology/@24.4345067,77.1592172,17z/data=!4m2!3m1!1s0x397aff3abbbad69f:0x9af2aa865b395399" target="_blank"><button class="btn">Get Directions</button></a>
+
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 col-lg-12 col-sm-12">
+									<p id="para">
+									<h5>HOW TO REACH JUET, GUNA:</h5><br>
+									 The campus is 20 minutes (15kms) away from the nearest railways station, i.e. RUTHIYAI JUNCTION (RTA). Also about 40 minutes from GUNA railway station .You can hire a taxi or an auto-rikshaw from outside the Railway stations to reach the campus. It is situated on N.H. 3 (A.B. Road) so busses run frequently. For further details contact: Samarth (phone no.) Utkarsh (phone no.)
+									 </p>
+									<p>
+									For any Other Query Contact us at: <em>sangharsh.juet.7@gmail.com</em>
+									</p>
+
+								</div>
+
+
+							</div>
+
+
+					      </div>
+					    </div>
+					  </div>
+		</div>
+	</div>
+	
+
+
+
+
+</div>
+
+
+
+
+
+  <!-- Preloader -->
+<script type="text/javascript">
+    //<![CDATA[
+        $(window).load(function() { // makes sure the whole site is loaded
+            $('#status').fadeOut(); // will first fade out the loading animation
+            $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
+            $('body').delay(350).css({'overflow':'visible'});
+        })
+    //]]>
+</script>
+</body>
+</html>

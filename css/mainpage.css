@@ -30,7 +30,6 @@ h1, h2, .jumbotron {
   background: #fff;/*#f2f2e8;*/
  /* padding: 110px 50px 50px;*/
 }
-
 .bg{
   z-index: 1;
   position: absolute;
@@ -57,7 +56,7 @@ h1, h2, .jumbotron {
 }
 .par-back2{
   margin-top: -20px;
-  background: url(../img/infams.jpg) no-repeat center center fixed; 
+  background: url(../img/back2.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -74,12 +73,318 @@ h1, h2, .jumbotron {
   box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 }
 .events{
-	background-image: url(../img/111200.jpg);
+	/*background-image: url(../img/111200.jpg);
   -webkit-background-size: cover; /* For WebKit*/
-    -moz-background-size: cover;    /* Mozilla*/
-    -o-background-size: cover;      /* Opera*/
-    background-size: cover;         /* Generic*/
-	padding-top: 0;
-	text-align: center;
+  /*  -moz-background-size: cover;    /* Mozilla*/
+   /* -o-background-size: cover;      /* Opera*/
+   /* background-size: cover;         /* Generic*/
+	/*padding-top: 0;
+	text-align: center;*/
+    background: red; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, black, grey); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, black, grey); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, black, grey); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, black, grey); /* Standard syntax */
 
+
+}
+#test{
+  margin-top: 1em;
+}
+.card-panel{
+  background: cornsilk;
+}
+
+
+
+  * {
+  box-sizing: border-box;
+}
+.scrolled {
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+header {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  top:0;
+}
+
+
+/*navbar*/
+.container {
+  max-width: 60em;
+  min-width: 45em;
+  margin: 0 auto;
+  padding: 0 2em;
+}
+nav ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    float: right;
+  }
+nav {
+  position: fixed;
+  width: 100%;
+  margin: 0 auto;
+  top: 0;
+  z-index: 3;
+}
+  
+ nav li {
+    display: inline-block;
+    padding: 2em;
+    text-align: center;
+    transition: all .2s;
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+ nav a {
+    color: #FFF;
+    text-decoration: none;
+    font-style: oblique;
+    font-size: 18px;
+    transition: all .3s;
+  }
+  nav a:hover{
+    color:#fff;
+    text-transform: uppercase;
+  }
+
+
+
+#icon {
+  display: inline-block;
+  padding-top: .7em;
+  font-size: 2em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+#nav-bg {
+  background: #222;
+  position: fixed;
+  height: 5em;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+}
+
+@media screen and (max-width: 600px) {
+    nav { 
+        height: auto;
+    }
+    nav ul {
+        width: 100%;
+        display: block;
+        height: auto;
+
+    }
+    nav li {
+        width: 50%;
+        float: left;
+        position: relative;
+    }
+    nav li a {
+        border-bottom: 1px solid #576979;
+        border-right: 1px solid #576979;
+    }
+    nav a {
+        text-align: left;
+        width: 100%;
+        text-indent: 25px;
+    }
+    .logo{
+      position: relative;
+    }
+}
+@media only screen and (max-width : 480px) {
+    nav {
+        border-bottom: 0;
+    }
+    nav ul {
+        display: none;
+        height: auto;
+    }
+    nav a#pull {
+        display: block;
+        background-color: #283744;
+        width: 100%;
+        position: relative;
+    }
+    nav a#pull:after {
+        content:"";
+        background: url('./img/menu-icon.png') no-repeat;
+        background-size: 50%;
+        background-color: black;
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        position: absolute;
+        right: 15px;
+        top: 10px;
+    }
+     .logo{
+      position: relative;
+    }
+}
+@media only screen and (max-width : 320px) {
+    nav li {
+        display: block;
+        float: none;
+        width: 100%;
+    }
+    nav li a {
+        border-bottom: 1px solid #576979;
+    }
+
+}
+.footer{
+    font-family: Didact Gothic;
+    font-size: 2em;
+    color: #00AAFF;
+}
+
+.zoomwall {
+  font-size: 0;
+
+  overflow: hidden; 
+}
+
+.zoomwall img {
+  height: 15vw;
+  opacity: 1;
+  vertical-align: top;
+  
+  transform-origin: 0% 0%;
+  transition-property: transform, opacity;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+
+  -webkit-transform-origin: 0% 0%;
+  -webkit-transition-property: transform, opacity;
+  -webkit-transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+}
+
+.zoomwall.lightbox img {
+  transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
+}
+
+.zoomwall.lightbox img {
+  opacity: 0.3;
+}
+
+.zoomwall.lightbox img.active {
+  opacity: 1;
+}
+
+/*GROW*/
+.pic {
+  border: 10px solid #fff;  
+  float: left;
+  height: 300px;
+  width: 300px;
+  margin: 20px;
+  margin-left: 100px;
+  overflow: hidden;
+  -webkit-box-shadow: 5px 5px 5px #111;
+          box-shadow: 5px 5px 5px #111;  
+}
+.grow img {
+  height: 300px;
+  width: 300px;
+ 
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+}
+ 
+.grow img:hover {
+  width: 400px;
+  height: 400px;
+}
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/*elevator*/
+
+.down-arrow {
+    font-size: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-shadow: 0px -20px #0C1F31, 0px 0px #C33329;
+    color: rgba(0,0,0,0);
+    text-align: center;
+    -webkit-transform: scaleY(0.8);
+    -moz-transform: scaleY(0.8);
+    transform: scaleY(0.8);
+}
+
+.footer {
+    box-sizing: border-box;
+    padding-top: 0px;
+    margin-bottom: 50px;
+    height: 100px;
+}
+
+.elevator {
+    text-align: center;
+    cursor: pointer;
+    width: 140px;
+    margin: auto;
+}
+
+.elevator:hover {
+    opacity: 0.7;
+}
+
+.elevator svg {
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: auto;
+    margin-bottom: 5px;
+}
+
+
+/*preloder*/
+body {
+    overflow: hidden;
+}
+
+/* Preloader */
+
+#preloader {
+    overflow: hidden;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:#222; /* change if the mask should have another color then white */
+    z-index:99; /* makes sure it stays on top */
+}
+
+#status {
+    width:80%;
+    height:80%;
+    position:absolute;
+     /* centers the loading animation horizontally one the screen */
+    /* centers the loading animation vertically one the screen */
+    background-image:url(../img/dlogo.png); /* path to your loading animation */
+    background-repeat:no-repeat;
+    background-size: cover;
+    /*margin:-100px 0 0 -100px; /* is width and height divided by two */
 }

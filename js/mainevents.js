@@ -2,8 +2,10 @@ jQuery(document).ready(function($){
 	var gallery = $('.cd-gallery'),
 		foldingPanel = $('.cd-folding-panel'),
 		mainContent = $('.cd-main');
+	var menu=$('menuevent');
 	/* open folding content */
 	gallery.on('click', 'a', function(event){
+		//menu.css("display","none");
 		event.preventDefault();
 		openItemInfo($(this).attr('href'));
 	});
@@ -42,6 +44,7 @@ jQuery(document).ready(function($){
 	function toggleContent(url, bool) {
 		if( bool ) {
 			/* load and show new content */
+
 			var foldingContent = foldingPanel.find('.cd-fold-content');
 			foldingContent.load(url+' .cd-fold-content > *', function(event){
 				setTimeout(function(){

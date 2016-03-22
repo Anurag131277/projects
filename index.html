@@ -4,124 +4,58 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 
-
-        <script src='./js/elevator.js'></script>
-
-        <link href='./css/stylesmain.css' rel='stylesheet'>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arvo" />
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Didact+Gothic" />
    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lobster+Two" />
-   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Raleway" />
 
-     <link rel="stylesheet" href="./css/zoomwall.css" />
-  <link rel="stylesheet" href="./css/imagegrow.css">
-  <!--link rel="stylesheet" href="./css/navbar2.css"-->
   <link rel="stylesheet" href="./css/mainpage.css">
 
 
-
 <style type="text/css">
-	* {
-  box-sizing: border-box;
-}
-.scrolled {
-  position: fixed;
-  width: 100%;
-  top: 0;
-}
-header {
-  position: relative;
-  z-index: 2;
-  height: 100%;
-  top:0;
-}
 
-
-/*navbar*/
-.container {
-  max-width: 60em;
-  min-width: 45em;
-  margin: 0 auto;
-  padding: 0 2em;
+.logo{
+  position: absolute;
+  z-index: 5;
+  margin-top: 0em;
+  box-shadow: 2px 2px 15px #888888;
+  border-radius: 25px;  
 }
-nav ul {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-    float: right;
-  }
-nav {
+.social{
   position: fixed;
-  width: 100%;
-  margin: 0 auto;
-  top: 0;
-  z-index: 3;
+  z-index: 5; 
+  margin-top: 10em;
 }
+.social li{
+  margin:10px 0;
+}
+.logo ul , .social ul{
+  list-style-type: none;
+}
+.logo ul li{
+  padding: 0px 0px 0px 2px; 
+}
+.logo-img{
+  margin-top: 30px;
+  padding: 0px 0px 10px 10px;
+  width: 10em;
+  max-height: 10em;
   
- nav li {
-    display: inline-block;
-    padding: 2em;
-    text-align: center;
-    transition: all .2s;
-    &:last-child {
-      padding-right: 0;
-    }
-  }
- nav a {
-    color: #FFF;
-    text-decoration: none;
-    transition: all .3s;
-    &:hover {
-      color: #DDD;
-    }
-  }
-
-
-#icon {
-  display: inline-block;
-  padding-top: .7em;
-  font-size: 2em;
-  font-weight: 700;
-  text-transform: uppercase;
 }
-
-#nav-bg {
-  background: #222;
-  position: fixed;
-  height: 5em;
-  width: 100%;
-  top: 0;
-  z-index: 1;
+.logo-social{
+  width: 4%;
+  height: 4%;
+  margin-left: .5em;
+}
+#developerinfo{
+  margin-top: -25px;
+  float: right;
 }
 
 </style>
-<!--script type="text/javascript">
-
-$(document).ready(function(){
-	var  mn = $(".two");
-    mns = "scrolled";
-    hdr = $('header').height();
-
-$(window).scroll(function() {
-  if( $(this).scrollTop() >= hdr+70 ) {
-    mn.addClass(mns);
-  } else {
-    mn.removeClass(mns);
-  }
-});
-
-
-});
-
-</script-->
-
 
 <script type="text/javascript"> 
 window.onload = function() {
@@ -130,30 +64,48 @@ window.onload = function() {
 </script>
 </head>
 <body>
-<nav>
-  <div class='container'>
-    <div class='fontawesome-cog' id='icon'></div>
-    <ul>
-      <li>
-        <a href="./index.html">Home</a>
-      </li>
-      <li>
-        <a href="./events/events.html">Events</a>
-      </li>
-      <li>
-        <a href='./contact.html'>Contact Us</a>
-      </li>
-      <li>
-        <a href='#'>Sponsors</a>
-      </li>
-      <li>
-        <a href='./register.php'>Registration</a>
-      </li>
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status">&nbsp;</div>
+</div>
+
+
+<nav class="clearfix two">
+
+    <ul class="clearfix">
+        <li id="large"><a href="./index.html">Home</a></li>
+        <li id="large"><a href="./events/events.html">Events</a></li>
+        <li id="large"><a href="./gallery.html">Gallery</a></li>
+        <li id="large"><a href="./team.html">Our Teams</a></li>
+        <li id="large"><a href="./sponsor.html" target="_blank">Sponsors</a></li>
+        <li id="large"><a href="./register.php">Registration</a></li>
+
+        
     </ul>
-  </div>
+    <a href="#" id="pull"></a>
 </nav>
-<header>
+
+  <div class="logo">  
+    <img src="./img/100.png" class="logo-img">
+  </div>
+
+<div class="social">
+  <ul>
+  <li><a href="http://www.google.com" target="_blank">
+  <img src="./img/gp.png" class="logo-social"></a></li>
+  <li><a href="http://www.instagram.com" target="_blank">
+  <img src="./img/instalogo.png" class="logo-social"></a></li>
+  <li><a href="http://www.facebook.com" target="_blank">
+  <img src="./img/flogo.png" class="logo-social"></a></li>
+</ul>
+</div>
+
+<header id="headdd">
+  <div class="logo">
+  <img src="./img/dlogo.png" class="logo-img">
+  </div>
 	           <div class="bgvid">
+
                 <img src="./img/dequinoxpng1.png" width="100%" height="100%" class="bg"></img>
                 <video id="vid" loop autoplay height="100%" width="100%">
                    <source src="./music/heyhiheyhi.webm" type="video/webm"><!--webm not supported bt ie .convert to some other (mp4)-->
@@ -163,27 +115,9 @@ window.onload = function() {
 
 </header>
 <div id='nav-bg'></div>
-<!-- nav class="clearfix two">
-    <ul class="clearfix">
-        <li id="large"><a href="./index.html">Home</a></li>
-        <li id="large"><a href="./events/events.html">Events</a></li>
-        <li id="large"><a href="./contact.html">Contact Us</a></li>
-        <li id="large"><a href="#">Sponsers</a></li>
-        <li id="large"><a href="./register.php">Registration</a></li>
-        
-    </ul>
-    <a href="#" id="pull">Menu</a>
-</nav>
-<!-a-
-<nav class="main-nav nav1">
-      <a class="nav-link activelink" href="./events/events.html">Events</a>
-      <a class="nav-link activelink" href="./contact.html">Contact Us</a>
-      <a class="nav-link activelink" href="#">Sponsers</a>
-      <a class="nav-link activelink" href="#">Registration</a>
-</nav-->
 
-<div class="main">
-	<section class="abt_us">
+<div class="main" id="main-id">
+	<section class="abt_us corn-silk">
     <div class="container-fluid">
              <div class="jumbotron">
                	<p><h3><font class="div_head"><br>About Us</font></h3></p>
@@ -196,11 +130,11 @@ window.onload = function() {
     </div>
     </section>
   </div>
-    <div class="par-back">
+    <div class="par-back" id-"backk">
     </div>
 <div class="main">
 
-	<div class="jumbotron">
+	<div class="jumbotron corn-silk">
               <p><h3><font class="div_head"><br>Testimonials</font></h3></p>
 
               <hr color="white"/>
@@ -212,7 +146,7 @@ window.onload = function() {
                                   <img src="img/1.jpg" style="width:100px; height:100px;" class="circle responsive-img"> <!-- notice the "circle" class -->
                                 </div>
                                 <div class="col-sm-12 col-md-10" >
-                                  <p style="line-height:30px; text-align:justify; margin-top:20px;" class="left-align">" Our journey to JUET Guna  was one of the most memorable and to add on to that a very memorable gig. We loved playing 
+                                  <p style="line-height:30px; text-align:justify; margin-top:20px;padding-right:.6em;" class="left-align">" Our journey to JUET Guna  was one of the most memorable and to add on to that a very memorable gig. We loved playing 
                                   for the crowd and we thank each and everyone who stayed back to watch us despite all the delays. There were absolutely no 
                                   complaints in terms of Hospitality and the Management. We would like to thank each and every committee member who was part 
                                   of the management team and the hospitality team for seeing to it that our stay and the show is smooth. " 
@@ -231,7 +165,7 @@ window.onload = function() {
                                   <img src="img/1.jpg" style="width:100px; height:100px;" class="circle responsive-img"> <!-- notice the "circle" class -->
                                 </div>
                                 <div class="col-sm-12 col-md-10" >
-                                  <p style="line-height:30px; text-align:justify; margin-top:20px;" class="left-align">" Our journey to JUET Guna  was one of the most memorable and to add on to that a very memorable gig. We loved playing 
+                                  <p style="line-height:30px; text-align:justify; margin-top:20px;padding-right:.6em;" class="left-align">" Our journey to JUET Guna  was one of the most memorable and to add on to that a very memorable gig. We loved playing 
                                   for the crowd and we thank each and everyone who stayed back to watch us despite all the delays. There were absolutely no 
                                   complaints in terms of Hospitality and the Management. We would like to thank each and every committee member who was part 
                                   of the management team and the hospitality team for seeing to it that our stay and the show is smooth. " 
@@ -246,7 +180,7 @@ window.onload = function() {
 	<div class="down-arrow">&#9660;</div>
 	<section>
         <div class="jumbotron gal">
-          <p><h3><font class="div_head"><br>Gallary</font></h3></p>
+          <p><h3><font class="div_head"><br>Gallery</font></h3></p>
            <hr color="white" />
           <div class="row" style="padding-top:20px;">
             <div class="col-sm-12 col-md-12">
@@ -266,24 +200,24 @@ window.onload = function() {
       </section>
 
 </div>
-<div class="par-back2">
+<div class="par-back2" >
     </div>	
 
 <div class="container-fluid main events">
-<p><h3><font class="div_head"><br>D'Equinox  2k15</font></h3></p>
+<p><center><h3><font class="div_head"><br>Sangharsh  2k16</font></h3></center></p>
  <hr color="white" />
  <div class="row">
  	<div class="col-md-6 col-sm-6">
-    <h3><font class="div_head">Panache</font></h3>
+    <h3><center><font class="div_head">Football</font></center></h3>
       <div class="grow pic">
-        <img src="./img/strips.jpg"/ width="50%" height="50%">
+        <img src="./img/bshow.jpg"/ width="50%" height="50%">
       </div>
 		
  	</div>
  	<div class="col-md-6 col-sm-6">
-    <h3><font class="div_head">ProNights</font></h3>
+    <h3><center><font class="div_head">BasketBall</font></center></h3>
     <div class="grow pic">
-        <img src="./img/strips.jpg"/ width="50%" height="50%">
+        <img src="./img/bshow.jpg"/ width="50%" height="50%">
       </div>
  	</div>
  </div>
@@ -295,49 +229,38 @@ window.onload = function() {
 
  <div class="row">
   <div class="col-md-6 col-sm-6">
-    <h3><font class="div_head">Event3</font></h3>
+    <h3><center><font class="div_head">LAN</font></center></h3>
       <div class="grow pic">
-        <img src="./img/strips.jpg"/ width="50%" height="50%">
+        <img src="./img/media.jpg"/ width="50%" height="50%">
       </div>
     
   </div>
   <div class="col-md-6 col-sm-6">
-    <h3><font class="div_head">Event4</font></h3>
+    <h3><center><font class="div_head">EDM</font></center></h3>
     <div class="grow pic">
-        <img src="./img/strips.jpg"/ width="50%" height="50%">
+        <img src="./img/edm.jpg"/ width="50%" height="50%">
       </div>
   </div>
  </div>
 
 </div>
  <div class="footer main">
-            <div class="do-the-thing">
-                <div class="elevator">
-                    <svg class="sweet-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" height="100px" width="100px">
-                        <path d="M70,47.5H30c-1.4,0-2.5,1.1-2.5,2.5v40c0,1.4,1.1,2.5,2.5,2.5h40c1.4,0,2.5-1.1,2.5-2.5V50C72.5,48.6,71.4,47.5,70,47.5z   M47.5,87.5h-5v-25h5V87.5z M57.5,87.5h-5v-25h5V87.5z M67.5,87.5h-5V60c0-1.4-1.1-2.5-2.5-2.5H40c-1.4,0-2.5,1.1-2.5,2.5v27.5h-5  v-35h35V87.5z"/>
-                        <path d="M50,42.5c1.4,0,2.5-1.1,2.5-2.5V16l5.7,5.7c0.5,0.5,1.1,0.7,1.8,0.7s1.3-0.2,1.8-0.7c1-1,1-2.6,0-3.5l-10-10  c-1-1-2.6-1-3.5,0l-10,10c-1,1-1,2.6,0,3.5c1,1,2.6,1,3.5,0l5.7-5.7v24C47.5,41.4,48.6,42.5,50,42.5z"/>
-                    </svg>
-                    Back to Top
-                </div>
+                
+                  <center>
+                  <p>Brought to you By:</p>
+                  <img src="./img/jyc.jpg" width="200px" height="200px"></center>
+                <p id="developerinfo">Made By:<a href="https://www.facebook.com/anurag.gupta.67" target="_blanck">Anurag Gupta</a></p>
+               
             </div>
         </div>
 
-         <script>
-
-            // Simple elevator usage.
-            var elementButton = document.querySelector('.elevator');
-            var elevator = new Elevator({
-                element: elementButton,
-                mainAudio: './music/elevator.mp3', // Music from http://www.bensound.com/
-                endAudio:  './music/ding.mp3'
-            });
-
-        </script>
+      
 
   <script type="text/javascript">
   var header = $('header');
 var range = 100;
 var op=50;
+
 $(window).on('scroll', function () {
   
     var scrollTop = $(this).scrollTop();
@@ -348,7 +271,7 @@ $(window).on('scroll', function () {
     var calc = 1 - (scrollTop - offset + range) / range;
   
     //var op=1.00;//header.css({'opacity':1});
-    console.log(calc);
+    //console.log(calc);
     header.css({ 'opacity': calc });
   
     if ( calc > '1' ) {
@@ -359,6 +282,30 @@ $(window).on('scroll', function () {
   
 });
 
+
+</script>
+<script type="text/javascript">
+    $(function() {
+      var pull    = $('#pull');
+        menu    = $('nav ul');
+        menuHeight  = menu.height();
+
+      $(pull).on('click', function(e) {
+        e.preventDefault();
+        menu.slideToggle();
+      });
+    });
+
+  </script>
+  <!-- Preloader -->
+<script type="text/javascript">
+    //<![CDATA[
+        $(window).load(function() { // makes sure the whole site is loaded
+            $('#status').fadeOut(); // will first fade out the loading animation
+            $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
+            $('body').delay(350).css({'overflow':'visible'});
+        })
+    //]]>
 </script>
 
   <script type="text/javascript" src="./js/zoomwall.js"></script>
